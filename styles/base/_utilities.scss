@@ -1,0 +1,117 @@
+@import '../abstracts/_variables.scss';
+@import '../abstracts/_mixins.scss';
+
+.container-centered {
+    margin: auto;
+    max-width: 1440px;
+}
+
+/* PADDING LEFT AND RIGHT */
+.container-px {
+    padding-left: $p-xs;
+    padding-right: $p-xs;
+
+    @include sm {
+        padding-left: $p-sm;
+        padding-right: $p-sm;
+    }
+
+    @include md {
+        padding-left: $p-md;
+        padding-right: $p-md;
+    }
+
+    @include lg {
+        padding-left: $p-lg;
+        padding-right: $p-lg;
+    }
+}
+
+/* PADDING LEFT */
+.container-pl {
+    padding-left: $p-xs;
+
+    @include sm {
+        padding-left: $p-sm;
+    }
+
+    @include md {
+        padding-left: $p-md;
+    }
+
+    @include lg {
+        padding-left: $p-lg;
+    }
+}
+
+/* PADDING RIGHT */
+.container-pr {
+    padding-right: $p-xs;
+
+    @include sm {
+        padding-right: $p-sm;
+    }
+
+    @include md {
+        padding-right: $p-md;
+    }
+
+    @include lg {
+        padding-right: $p-lg;
+    }
+}
+
+/* PADDING TOP AND BOTTOM */
+.container-py {
+    padding-top: $p-xs;
+    padding-bottom: $p-xs;
+
+    @include sm {
+        padding-top: $p-sm;
+        padding-bottom: $p-sm;
+    }
+
+    @include md {
+        padding-top: $p-md;
+        padding-bottom: $p-md;
+    }
+
+    @include lg {
+        padding-top: $p-lg;
+        padding-bottom: $p-lg;
+    }
+}
+
+/* PADDING TOP */
+.container-pt {
+    padding-top: $p-xs;
+
+    @include sm {
+        padding-top: $p-sm;
+    }
+
+    @include md {
+        padding-top: $p-md;
+    }
+
+    @include lg {
+        padding-top: $p-lg;
+    }
+}
+
+/* PADDING BOTTOM */
+.container-pb {
+    padding-bottom: $p-xs;
+
+    @include sm {
+        padding-bottom: $p-sm;
+    }
+
+    @include md {
+        padding-bottom: $p-md;
+    }
+
+    @include lg {
+        padding-bottom: $p-lg;
+    }
+}

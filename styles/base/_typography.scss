@@ -1,0 +1,109 @@
+/* TEXT */
+/* TODO : Faire responsive */
+/* APPROCHE MOBILE FIRST */
+.text-small {
+    font-size: $text-sm;
+    line-height: $line-height-sm;
+}
+
+.text-normal {
+    font-size: $text-normal;
+    line-height: $line-height-normal;
+}
+
+.text-lg {
+    font-size: $text-lg;
+    line-height: $line-height-lg;
+}
+
+.text-xl {
+    font-size: $text-xl;
+    line-height: $line-height-xl;
+}
+
+.text-body {
+    @extend .text-normal;
+    color: black;
+}
+
+/* UTILITIES HEADING */
+.text-h1 {
+    font-size: $text-2xl;
+
+    @include sm {
+        font-size: $text-2xl;
+    }
+
+    @include md {
+        font-size: $text-3xl;
+    }
+
+    @include lg {
+        font-size: $text-4xl;
+    }
+}
+
+.text-h2 {
+    font-size: $text-xl;
+
+    @include sm {
+        font-size: $text-xl;
+    }
+
+    @include md {
+        font-size: $text-2xl;
+    }
+
+    @include lg {
+        font-size: $text-3xl;
+    }
+}
+
+.text-h3 {
+    font-size: $text-lg;
+
+    @include sm {
+        font-size: $text-lg;
+    }
+
+    @include md {
+        font-size: $text-xl;
+    }
+
+    @include lg {
+        font-size: $text-2xl;
+    }
+}
+
+.text-h4 {
+    font-size: $text-normal;
+
+    @include sm {
+        font-size: $text-normal;
+    }
+
+    @include md {
+        font-size: $text-lg;
+    }
+
+    @include lg {
+        font-size: $text-xl;
+    }
+}
+
+.text-h5,
+.text-h6 {
+    font-size: $text-sm;
+
+    @include sm {
+        font-size: $text-sm;
+    }
+
+    @include md {
+        font-size: $text-normal;
+    }
+
+    @include lg {
+        font-size: $text-lg;
+    }
+}

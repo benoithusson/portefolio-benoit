@@ -1,0 +1,141 @@
+@import '../base/_utilities.scss';
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: $p-sm;
+    width: 100%;
+
+    background-color: $bg-color-primary;
+    border-top: $border-primary;
+}
+
+.footer__top {
+    display: flex;
+    flex-direction: column;
+
+    @include md {
+        flex-direction: row;
+        padding-top: $p-md;
+        padding-right: $p-md;
+        padding-bottom: $p-md;
+        padding-left: $p-md;
+    }
+
+    @include lg {
+        padding-top: $p-lg;
+        padding-bottom: $p-lg;
+    }
+}
+
+.footer__brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: $border-primary;
+    // TODO : delete height when Logo brand is in the code
+    height: 100px;
+
+    ul {
+        li {
+            list-style: none;
+        }
+    }
+
+    @include md {
+        width: 25%;
+        border-bottom: none;
+    }
+}
+
+.footer_nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // Override padding-left for <ul>
+    // The padding-left by default comes from _reset.scss
+    padding-left: 0;
+
+    @include md {
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+.nav__item {
+    @extend .container-py;
+    width: 100%;
+    border-bottom: $border-primary;
+    list-style: none;
+
+    @include md {
+        padding-top: 0;
+        padding-right: $p-lg;
+        padding-bottom: 0;
+        padding-left: $p-lg;
+        width: auto;
+        border-bottom: none;
+    }
+}
+
+.footer__socials {
+    padding-top: $p-xs;
+    padding-bottom: $p-xs;
+
+    a {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    @include md {
+        padding-top: 0;
+        padding-bottom: 0;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.footer__bottom {
+    @include md {
+        display: flex;
+        padding-right: $p-md;
+        padding-left: $p-md;
+        border-top: $border-primary;
+    }
+}
+
+.footer__copyright {
+    padding-top: $p-xs;
+    padding-bottom: $p-xs;
+    border-top: $border-primary;
+
+    @include md {
+        display: flex;
+        justify-content: flex-start;
+        padding-top: $p-sm;
+        padding-bottom: $p-sm;
+        width: 100%;
+        border-top: none;
+    }
+}
+
+.footer__legals {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: $p-sm;
+    padding-bottom: $p-sm;
+    border-top: $border-primary;
+
+    a {
+        padding-left: 30px;
+    }
+
+    @include md {
+        justify-content: flex-end;
+        width: 100%;
+        border-top: none;
+    }
+}

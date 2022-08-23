@@ -1,0 +1,16 @@
+@import '../base/_utilities.scss';
+@import '../abstracts/_mixins.scss';
+
+.header__container {
+    @extend .container-px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    opacity: 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: 200;
+}
