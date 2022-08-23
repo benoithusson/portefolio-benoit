@@ -3,17 +3,23 @@ import gsap from 'gsap'
 import styles from '../styles/pages/Home.module.scss'
 import Image from 'next/image';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
+import skills from '../data/skills'
 // https://greensock.com/forums/topic/29801-getting-error-cannot-use-import-statement-outside-a-module-when-importing-flip/
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Home(props) {
-  // Ref
+  // Ref Hero Card
   const ref_left_home_card = useRef()
   const ref_right_home_card = useRef()
   const ref_left_home_card_content = useRef()
   const ref_right_home_card_content = useRef()
   const ref_scroll = useRef()
+
+  // Ref Skills part
+  const ref_skills_container = useRef()
+  const ref_skill_container_logo = useRef()
+  const ref_skill_container_text = useRef()
 
   useEffect(() => {
     const el_left_home_card = ref_left_home_card.current
@@ -34,12 +40,11 @@ export default function Home(props) {
         ease: 'Power2.easeIn',
         duration: 1,
       })
-
     // Animation content left
     gsap.fromTo(
       el_left_home_card_content,
       { opacity: 0 },
-      { opacity: 1, duration: 2, ease: 'Power2.easeIn' },
+      { opacity: 1, duration: 2.5, ease: 'Power2.easeIn' },
     )
 
     // Animation bloc right
@@ -60,7 +65,7 @@ export default function Home(props) {
     gsap.fromTo(
       el_right_home_card_content,
       { opacity: 0 },
-      { opacity: 1, duration: 2, ease: 'Power2.easeIn' },
+      { opacity: 1, duration: 2.5, ease: 'Power2.easeIn' },
     )
 
     // Animation scroll element
@@ -96,6 +101,20 @@ export default function Home(props) {
           <Image src="/arrow-down.svg" width={15} height={15} alt="arrow to indicate you to scroll down to continue to visit the page" />
         </div>
       </div>
+      {/* Créer composant réutilisable - idem que pour scroll */}
+      {/* Créer data.json avec données pour les skills : src, name, text */}
+      {skills.map((skill, id) => (
+        <>
+          <div className={styles.skillsContainer} key={id} ref={ref_skills_container}>
+            <div className={styles.skillContainerLogo} ref={ref_skill_container_logo}>
+              <Image src={`${skill.path_logo}`} alt={`${skill.alt}`} width={100} height={100} />
+            </div>
+            <div className={styles.skillContainerText} ref={ref_skill_container_text}>
+              <p>{skill.name}</p>
+            </div>
+          </div>
+        </>
+      ))}
     </>
   )
 }

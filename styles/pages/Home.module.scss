@@ -40,9 +40,9 @@
     font-weight: 100;
 }
 
+// Scroll
 .scrollContainer {
     font-size: $text-xs;
-    font-weight: 300;
     text-align: center;
     padding-top: 10px;
 }
@@ -51,4 +51,20 @@
 }
 
 .scrollArrow {
+}
+
+// Skills
+.skillsContainer {
+    display: flex;
+}
+
+.skillsContainerLogo {
+    background-color: green;
+}
+
+.skillContainerText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
 }
