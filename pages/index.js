@@ -1,119 +1,101 @@
-import { useRef, useEffect, useState } from 'react'
-import ScrollTrigger from 'gsap/dist/ScrollTrigger' // https://greensock.com/forums/topic/29801-getting-error-cannot-use-import-statement-outside-a-module-when-importing-flip/
+import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import styles from '../styles/pages/Home.module.scss'
+import Image from 'next/image';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger'
+// https://greensock.com/forums/topic/29801-getting-error-cannot-use-import-statement-outside-a-module-when-importing-flip/
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Home(props) {
   // Ref
-  const ref_presentation_bloc_left = useRef()
-  const ref_presentation_bloc_right = useRef()
-  const ref_title_bloc_left = useRef()
-  const ref_title_bloc_right = useRef()
-  const ref_button = useRef()
-
-  // Animation switch
-  const [stateAnimation, setStateAnimation] = useState('off')
-
-  const handleClick = () => {
-    stateAnimation === 'off' ? setStateAnimation('on') : setStateAnimation(null)
-  }
+  const ref_left_home_card = useRef()
+  const ref_right_home_card = useRef()
+  const ref_left_home_card_content = useRef()
+  const ref_right_home_card_content = useRef()
+  const ref_scroll = useRef()
 
   useEffect(() => {
-    // const el_home_container = ref_home_container.current
-    const el_presentation_bloc_left = ref_presentation_bloc_left.current
-    const el_presentation_bloc_right = ref_presentation_bloc_right.current
-    const el_title_bloc_left = ref_title_bloc_left.current
-    const el_title_bloc_right = ref_title_bloc_right.current
-    const el_button = ref_button.current
+    const el_left_home_card = ref_left_home_card.current
+    const el_right_home_card = ref_right_home_card.current
+    const el_left_home_card_content = ref_left_home_card_content.current
+    const el_right_home_card_content = ref_right_home_card_content.current
+    const el_scroll = ref_scroll.current
 
-    // Display button on page load
+    // Animation bloc left
     gsap.to(
-      el_button,
+      el_left_home_card,
       {
-        opacity: 1,
-        duration: 1,
+        display: 'flex',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '50%',
         ease: 'Power2.easeIn',
-      },
+        duration: 1,
+      })
+
+    // Animation content left
+    gsap.fromTo(
+      el_left_home_card_content,
+      { opacity: 0 },
+      { opacity: 1, duration: 2, ease: 'Power2.easeIn' },
     )
 
-    // Trigger animation if click on btn
-    if (stateAnimation === 'on') {
-      // Make btn disappears on click
-      gsap.to(
-        el_button,
-        {
-          opacity: 0,
-          display: 'none',
-          duration: 0.2,
-        })
+    // Animation bloc right
+    gsap.to(
+      el_right_home_card,
+      {
+        display: 'flex',
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        width: '50%',
+        ease: 'Power2.easeIn',
+        duration: 1,
+        transformOrigin: 'center',
+      })
 
-      // Animation bloc left
-      gsap.to(
-        el_presentation_bloc_left,
-        {
-          display: 'flex',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '50%',
-          ease: 'Power2.easeIn',
-          duration: 1,
-        })
+    // Animation content right
+    gsap.fromTo(
+      el_right_home_card_content,
+      { opacity: 0 },
+      { opacity: 1, duration: 2, ease: 'Power2.easeIn' },
+    )
 
-      // Animation title left
-      gsap.fromTo(
-        el_title_bloc_left,
-        { opacity: 0 },
-        { opacity: 1, duration: 2, ease: 'Power2.easeIn' },
-      )
+    // Animation scroll element
+    gsap.fromTo(el_scroll,
+      { opacity: 0 },
+      { opacity: 1, duration: 1, ease: 'Power2.easeIn' }
+    )
 
-      // Animation bloc right
-      gsap.to(
-        el_presentation_bloc_right,
-        {
-          display: 'flex',
-          position: 'absolute',
-          top: 0,
-          right: 0,
-          width: '50%',
-          ease: 'Power2.easeIn',
-          duration: 1,
-          transformOrigin: 'center',
-        })
-
-      // Animation title right
-      gsap.fromTo(
-        el_title_bloc_right,
-        { opacity: 0 },
-        { opacity: 1, duration: 2, ease: 'Power2.easeIn' },
-      )
-    }
-  }, [stateAnimation])
+  }, [])
 
   return (
-    <div className={styles.homeContainer}>
-      <div
-        className={styles.leftPresentationBloc}
-        ref={ref_presentation_bloc_left}
-      >
-        <h3 className={styles.leftContent} ref={ref_title_bloc_left}>
-          Frontend & <br />UX
+    <>
+      {/* Créer composant global pour chaque page ? */}
+      <div className={styles.homeContainer}>
+        {/* Créer composant réutilisable */}
+        <div className={styles.leftPresentationBloc} ref={ref_left_home_card}>
+          <h3 className={styles.leftContent} ref={ref_left_home_card_content}>
+            Frontend & <br />UX
         </h3>
-      </div>
-      <div
-        className={styles.rightPresentationBloc}
-        ref={ref_presentation_bloc_right}
-      >
-        <h3 className={styles.rightContent} ref={ref_title_bloc_right}>
-          My name is Benoît Thiennard. I am Frontend Developer with UX Skills.
-          I speak Français, English und Deutsch. I am a fan of Xtrem Sports.
+        </div>
+        {/* Même composant */}
+        <div className={styles.rightPresentationBloc} ref={ref_right_home_card}>
+          <h3 className={styles.rightContent} ref={ref_right_home_card_content}>
+            My name is Benoît Thiennard. I am Frontend Developer with UX Skills.
+            I speak Français, English und Deutsch. I am a fan of Xtrem Sports.
         </h3>
+        </div>
       </div>
-      <button className={styles.button} ref={ref_button} onClick={handleClick}>
-        CLICK
-      </button>
-    </div>
+      {/* Créer composant réutilisable */}
+      <div className={styles.scrollContainer} ref={ref_scroll}>
+        <div className={styles.scrollText}>Scroll</div>
+        <div className={styles.scrollArrow}>
+          <Image src="/arrow-down.svg" width={15} height={15} alt="arrow to indicate you to scroll down to continue to visit the page" />
+        </div>
+      </div>
+    </>
   )
 }

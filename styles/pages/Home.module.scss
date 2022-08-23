@@ -40,20 +40,15 @@
     font-weight: 100;
 }
 
-.button {
-    width: 200px;
-    height: 50px;
-    border: $border-primary;
-    font-size: $text-xl;
-    font-weight: 100;
-    background-color: white;
-    opacity: 0;
-    border-radius: 0;
+.scrollContainer {
+    font-size: $text-xs;
+    font-weight: 300;
+    text-align: center;
+    padding-top: 10px;
+}
 
-    &:hover {
-        border: 1px solid black;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
+.scrollText {
+}
+
+.scrollArrow {
 }
