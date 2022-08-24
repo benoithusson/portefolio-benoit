@@ -19,7 +19,6 @@ export default function Home(props) {
 
   // Ref Skills part
   const ref_skills_container = useRef()
-  const ref_skill_container_logo = useRef()
   const ref_skill_container_text = useRef()
 
   useEffect(() => {
@@ -28,6 +27,7 @@ export default function Home(props) {
     const el_left_home_card_content = ref_left_home_card_content.current
     const el_right_home_card_content = ref_right_home_card_content.current
     const el_scroll = ref_scroll.current
+    const el_skills_container = ref_skills_container.current
 
     // Animation bloc left
     gsap.to(
@@ -75,57 +75,75 @@ export default function Home(props) {
       { opacity: 1, duration: 1, ease: 'Power2.easeIn' }
     )
 
+    // Animation skill
+    // gsap.fromTo(el_skills_container,
+    //   scrollTrigger: {
+    //   trigger: el_skills_container,
+    //   markers: true,
+    //   start: 'top'
+    // },
+    //   { opacity: 0 },
+    //   { opacity: 1, duration: 1, ease: 'Power2.easeIn' }
+    // )
+
   }, [])
 
   return (
     <>
       <div className={styles.homeContainer}>
-        {/* HERO CARDS*/}
-        <Card
-          classCardContainer={styles.leftPresentationBloc}
-          refCardContainer={ref_left_home_card}
-          titleClass={styles.leftContent}
-          titleRef={ref_left_home_card_content}
-          title={['Frontend &', <br />, 'UX']}
-        />
-        <Card
-          classCardContainer={styles.rightPresentationBloc}
-          refCardContainer={ref_right_home_card}
-          titleClass={styles.rightContent}
-          titleRef={ref_right_home_card_content}
-          title={`
+
+        {/* HERO CARDS */}
+        <div className={styles.leftPresentationBloc} ref={ref_left_home_card}>
+          <Card
+            refCardContainer={ref_left_home_card}
+            titleClass={styles.leftContent}
+            titleRef={ref_left_home_card_content}
+            title={['Frontend &', <br />, 'UX']}
+          />
+        </div>
+        <div className={styles.rightPresentationBloc} ref={ref_right_home_card}>
+          <Card
+            refCardContainer={ref_right_home_card}
+            titleClass={styles.rightContent}
+            titleRef={ref_right_home_card_content}
+            title={`
             My name is Benoît Thiennard. I am Frontend Developer with UX Skills.
             I speak Français, English und Deutsch. I am a fan of Xtrem Sports.
           `}
+          />
+        </div>
+      </div>
+
+      {/* SCROLL */}
+      <div className={styles.scrollContainer} ref={ref_scroll}>
+        <Card
+          pathImage="/arrow-down.svg"
+          widthImage={15}
+          heightImage={15}
+          altImage="arrow to indicate you to scroll down to continue to visit the page"
+          textContainerClass={styles.scrollTextContainer}
+          textCard="Scroll"
         />
       </div>
-      {/* SCROLL */}
-      < Card
-        classCardContainer={styles.scrollContainer}
-        pathImage="/arrow-down.svg"
-        widthImage={15}
-        heightImage={15}
-        altImage="arrow to indicate you to scroll down to continue to visit the page"
-        textContainerClass={styles.scrollTextContainer}
-        textCard="Scroll"
-      />
+
       {/* SKILLS LIST */}
-      {
-        skills.map((skill, id) => (
-          <Card
-            classCardContainer={styles.skillsContainer}
-            refCardContainer={ref_skills_container}
-            keyElement={id}
-            pathImage={`${skill.path_logo}`}
-            altImage={`${skill.alt}`}
-            widthImage={100}
-            heightImage={100}
-            classContainerTextCard={styles.skillContainerText}
-            refContainerTextCard={ref_skill_container_text}
-            textCard={`${skill.name}`}
-          />
-        ))
-      }
+      <div className={styles.skillsContainer} ref={ref_skills_container}>
+        {
+          skills.map((skill, id) => (
+            <Card
+              classCardContainer={styles.skill}
+              keyElement={id}
+              pathImage={`${skill.path_logo}`}
+              altImage={`${skill.alt}`}
+              widthImage={70}
+              heightImage={100}
+              classContainerTextCard={styles.skillContainerText}
+              refContainerTextCard={ref_skill_container_text}
+              textCard={`${skill.name}`}
+            />
+          ))
+        }
+      </div>
     </>
   )
 }

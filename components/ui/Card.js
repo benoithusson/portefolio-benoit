@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Card(props) {
     return (
-        <div className={props.classCardContainer} ref={props.refCardContainer} key={props.keyElement}>
+        <div className={props.classCardContainer} key={props.keyElement}>
             {
                 props.pathImage &&
                 <Image
@@ -23,6 +23,6 @@ export default function Card(props) {
                 props.title &&
                 <h3 className={props.titleClass} ref={props.titleRef}>{props.title}</h3>
             }
-        </div >
+        </div>
     )
 }
