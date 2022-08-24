@@ -6,17 +6,32 @@ const skills = [
         "alt_logo": "Logo of React, the javaScript Framework"
     },
     {
-        "name": "ReactJS",
+        "name": "JavaScript",
         "path_logo": "/react.svg",
         "alt_logo": "Logo of React, the javaScript Framework"
     },
     {
-        "name": "ReactJS",
+        "name": "CSS / HTML",
         "path_logo": "/react.svg",
         "alt_logo": "Logo of React, the javaScript Framework"
     },
     {
-        "name": "ReactJS",
+        "name": "NextJS",
+        "path_logo": "/react.svg",
+        "alt_logo": "Logo of React, the javaScript Framework"
+    },
+    {
+        "name": "SCSS",
+        "path_logo": "/react.svg",
+        "alt_logo": "Logo of React, the javaScript Framework"
+    },
+    {
+        "name": "Tailwind",
+        "path_logo": "/react.svg",
+        "alt_logo": "Logo of React, the javaScript Framework"
+    },
+    {
+        "name": "GhostCMS",
         "path_logo": "/react.svg",
         "alt_logo": "Logo of React, the javaScript Framework"
     }

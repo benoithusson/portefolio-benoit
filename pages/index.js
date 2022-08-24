@@ -1,9 +1,10 @@
 import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import styles from '../styles/pages/Home.module.scss'
-import Image from 'next/image';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 import skills from '../data/skills'
+import Card from '../components/ui/Card'
+import Image from 'next/image';
 // https://greensock.com/forums/topic/29801-getting-error-cannot-use-import-statement-outside-a-module-when-importing-flip/
 
 gsap.registerPlugin(ScrollTrigger)
@@ -78,43 +79,53 @@ export default function Home(props) {
 
   return (
     <>
-      {/* Créer composant global pour chaque page ? */}
       <div className={styles.homeContainer}>
-        {/* Créer composant réutilisable */}
-        <div className={styles.leftPresentationBloc} ref={ref_left_home_card}>
-          <h3 className={styles.leftContent} ref={ref_left_home_card_content}>
-            Frontend & <br />UX
-        </h3>
-        </div>
-        {/* Même composant */}
-        <div className={styles.rightPresentationBloc} ref={ref_right_home_card}>
-          <h3 className={styles.rightContent} ref={ref_right_home_card_content}>
+        {/* HERO CARDS*/}
+        <Card
+          classCardContainer={styles.leftPresentationBloc}
+          refCardContainer={ref_left_home_card}
+          titleClass={styles.leftContent}
+          titleRef={ref_left_home_card_content}
+          title={['Frontend &', <br />, 'UX']}
+        />
+        <Card
+          classCardContainer={styles.rightPresentationBloc}
+          refCardContainer={ref_right_home_card}
+          titleClass={styles.rightContent}
+          titleRef={ref_right_home_card_content}
+          title={`
             My name is Benoît Thiennard. I am Frontend Developer with UX Skills.
             I speak Français, English und Deutsch. I am a fan of Xtrem Sports.
-        </h3>
-        </div>
+          `}
+        />
       </div>
-      {/* Créer composant réutilisable */}
-      <div className={styles.scrollContainer} ref={ref_scroll}>
-        <div className={styles.scrollText}>Scroll</div>
-        <div className={styles.scrollArrow}>
-          <Image src="/arrow-down.svg" width={15} height={15} alt="arrow to indicate you to scroll down to continue to visit the page" />
-        </div>
-      </div>
-      {/* Créer composant réutilisable - idem que pour scroll */}
-      {/* Créer data.json avec données pour les skills : src, name, text */}
-      {skills.map((skill, id) => (
-        <>
-          <div className={styles.skillsContainer} key={id} ref={ref_skills_container}>
-            <div className={styles.skillContainerLogo} ref={ref_skill_container_logo}>
-              <Image src={`${skill.path_logo}`} alt={`${skill.alt}`} width={100} height={100} />
-            </div>
-            <div className={styles.skillContainerText} ref={ref_skill_container_text}>
-              <p>{skill.name}</p>
-            </div>
-          </div>
-        </>
-      ))}
+      {/* SCROLL */}
+      < Card
+        classCardContainer={styles.scrollContainer}
+        pathImage="/arrow-down.svg"
+        widthImage={15}
+        heightImage={15}
+        altImage="arrow to indicate you to scroll down to continue to visit the page"
+        textContainerClass={styles.scrollTextContainer}
+        textCard="Scroll"
+      />
+      {/* SKILLS LIST */}
+      {
+        skills.map((skill, id) => (
+          <Card
+            classCardContainer={styles.skillsContainer}
+            refCardContainer={ref_skills_container}
+            keyElement={id}
+            pathImage={`${skill.path_logo}`}
+            altImage={`${skill.alt}`}
+            widthImage={100}
+            heightImage={100}
+            classContainerTextCard={styles.skillContainerText}
+            refContainerTextCard={ref_skill_container_text}
+            textCard={`${skill.name}`}
+          />
+        ))
+      }
     </>
   )
 }
