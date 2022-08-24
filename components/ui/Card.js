@@ -2,8 +2,9 @@ import React from 'react'
 import Image from 'next/image';
 
 export default function Card(props) {
+
     return (
-        <div className={props.classCardContainer} key={props.keyElement}>
+        <div className={props.classCard} ref={props.refCard} key={props.keyCard}>
             {
                 props.pathImage &&
                 <Image
@@ -14,14 +15,10 @@ export default function Card(props) {
                 />
             }
             {
-                props.textCard &&
-                <div className={props.classContainerTextCard} ref={props.refContainerTextCard}>
-                    <p>{props.textCard}</p>
+                props.text &&
+                <div className={props.classText} ref={props.refText}>
+                    <p>{props.text}</p>
                 </div>
-            }
-            {
-                props.title &&
-                <h3 className={props.titleClass} ref={props.titleRef}>{props.title}</h3>
             }
         </div>
     )

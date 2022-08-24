@@ -1,25 +1,22 @@
 import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
+import ScrollTrigger from 'gsap/dist/ScrollTrigger' // https://greensock.com/forums/topic/29801-getting-error-cannot-use-import-statement-outside-a-module-when-importing-flip/
 import styles from '../styles/pages/Home.module.scss'
-import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 import skills from '../data/skills'
+import List from '../components/ui/List'
 import Card from '../components/ui/Card'
 import Image from 'next/image';
-// https://greensock.com/forums/topic/29801-getting-error-cannot-use-import-statement-outside-a-module-when-importing-flip/
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Home(props) {
-  // Ref Hero Card
+  // Ref Bloc Presentation
   const ref_left_home_card = useRef()
   const ref_right_home_card = useRef()
   const ref_left_home_card_content = useRef()
   const ref_right_home_card_content = useRef()
   const ref_scroll = useRef()
-
-  // Ref Skills part
   const ref_skills_container = useRef()
-  const ref_skill_container_text = useRef()
 
   useEffect(() => {
     const el_left_home_card = ref_left_home_card.current
@@ -27,7 +24,6 @@ export default function Home(props) {
     const el_left_home_card_content = ref_left_home_card_content.current
     const el_right_home_card_content = ref_right_home_card_content.current
     const el_scroll = ref_scroll.current
-    const el_skills_container = ref_skills_container.current
 
     // Animation bloc left
     gsap.to(
@@ -69,77 +65,57 @@ export default function Home(props) {
       { opacity: 1, duration: 2.5, ease: 'Power2.easeIn' },
     )
 
-    // Animation scroll element
-    gsap.fromTo(el_scroll,
-      { opacity: 0 },
-      { opacity: 1, duration: 1, ease: 'Power2.easeIn' }
-    )
-
-    // Animation skill
-    // gsap.fromTo(el_skills_container,
-    //   scrollTrigger: {
-    //   trigger: el_skills_container,
-    //   markers: true,
-    //   start: 'top'
-    // },
-    //   { opacity: 0 },
-    //   { opacity: 1, duration: 1, ease: 'Power2.easeIn' }
-    // )
-
   }, [])
 
   return (
     <>
       <div className={styles.homeContainer}>
-
         {/* HERO CARDS */}
         <div className={styles.leftPresentationBloc} ref={ref_left_home_card}>
-          <Card
-            refCardContainer={ref_left_home_card}
-            titleClass={styles.leftContent}
-            titleRef={ref_left_home_card_content}
-            title={['Frontend &', <br />, 'UX']}
-          />
+          {/* <Card
+            classCard={ref_left_home_card}
+            classText={styles.leftContent}
+            refText={ref_left_home_card_content}
+            text={['Frontend &', <br />, 'UX']}
+          /> */}
         </div>
         <div className={styles.rightPresentationBloc} ref={ref_right_home_card}>
-          <Card
-            refCardContainer={ref_right_home_card}
-            titleClass={styles.rightContent}
-            titleRef={ref_right_home_card_content}
-            title={`
-            My name is Benoît Thiennard. I am Frontend Developer with UX Skills.
-            I speak Français, English und Deutsch. I am a fan of Xtrem Sports.
-          `}
-          />
+          {/* <Card
+            classCard={ref_right_home_card}
+            classText={styles.rightContent}
+            refText={ref_right_home_card_content}
+            text={`My name is Benoît Thiennard. I am Frontend Developer with UX Skills.
+            I speak Français, English und Deutsch. I am a fan of Xtrem Sports.`}
+          /> */}
         </div>
       </div>
 
       {/* SCROLL */}
       <div className={styles.scrollContainer} ref={ref_scroll}>
-        <Card
+        {/* <Card
           pathImage="/arrow-down.svg"
           widthImage={15}
           heightImage={15}
           altImage="arrow to indicate you to scroll down to continue to visit the page"
-          textContainerClass={styles.scrollTextContainer}
-          textCard="Scroll"
-        />
+          classText={styles.scrollTextContainer}
+          text="Scroll"
+        /> */}
       </div>
 
       {/* SKILLS LIST */}
       <div className={styles.skillsContainer} ref={ref_skills_container}>
         {
           skills.map((skill, id) => (
-            <Card
-              classCardContainer={styles.skill}
-              keyElement={id}
-              pathImage={`${skill.path_logo}`}
-              altImage={`${skill.alt}`}
-              widthImage={70}
-              heightImage={100}
-              classContainerTextCard={styles.skillContainerText}
-              refContainerTextCard={ref_skill_container_text}
-              textCard={`${skill.name}`}
+            <List
+              listItemContainer={styles.skill}
+              listItemKey={id}
+              pathImage={skill.path_logo}
+              widthImage={60}
+              heightImage={60}
+              altImage={skill.alt}
+              listItemName={styles.skillContainerText}
+              item={skill.name}
+              key={id}
             />
           ))
         }
