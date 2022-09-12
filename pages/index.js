@@ -72,51 +72,58 @@ export default function Home(props) {
       <div className={styles.homeContainer}>
         {/* HERO CARDS */}
         <div className={styles.leftPresentationBloc} ref={ref_left_home_card}>
-          {/* <Card
+          <Card
             classCard={ref_left_home_card}
             classText={styles.leftContent}
             refText={ref_left_home_card_content}
             text={['Frontend &', <br />, 'UX']}
-          /> */}
+            key={'test'}
+          />
         </div>
         <div className={styles.rightPresentationBloc} ref={ref_right_home_card}>
-          {/* <Card
+          <Card
             classCard={ref_right_home_card}
             classText={styles.rightContent}
             refText={ref_right_home_card_content}
             text={`My name is Benoît Thiennard. I am Frontend Developer with UX Skills.
             I speak Français, English und Deutsch. I am a fan of Xtrem Sports.`}
-          /> */}
+            key={'test2'}
+          />
         </div>
       </div>
 
       {/* SCROLL */}
       <div className={styles.scrollContainer} ref={ref_scroll}>
-        {/* <Card
+        <Card
           pathImage="/arrow-down.svg"
           widthImage={15}
           heightImage={15}
           altImage="arrow to indicate you to scroll down to continue to visit the page"
           classText={styles.scrollTextContainer}
           text="Scroll"
-        /> */}
+          key={'test3'}
+        />
       </div>
 
       {/* SKILLS LIST */}
       <div className={styles.skillsContainer} ref={ref_skills_container}>
+        <h3>The Skills</h3>
         {
           skills.map((skill, id) => (
-            <List
-              listItemContainer={styles.skill}
-              listItemKey={id}
-              pathImage={skill.path_logo}
-              widthImage={60}
-              heightImage={60}
-              altImage={skill.alt}
-              listItemName={styles.skillContainerText}
-              item={skill.name}
-              key={id}
-            />
+            <div className={styles.skillContainer}>
+              <List
+                listItemContainer={styles.skillItem}
+                nameItem={styles.skillName}
+                listItemKey={id}
+                pathImage={skill.path_logo}
+                widthImage={70}
+                heightImage={70}
+                altImage={skill.alt}
+                listItemName={styles.skillText}
+                item={skill.name}
+                key={id}
+              />
+            </div>
           ))
         }
       </div>

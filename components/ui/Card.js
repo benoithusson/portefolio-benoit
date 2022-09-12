@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function Card(props) {
 
     return (
-        <div className={props.classCard} ref={props.refCard} key={props.keyCard}>
+        <div className={props.classCard} ref={props.refCard}>
             {
                 props.pathImage &&
                 <Image
