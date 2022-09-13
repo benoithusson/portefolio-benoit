@@ -132,14 +132,13 @@ export default function Home(props) {
       </div>
 
       {/* SKILLS */}
-      <div className={styles.skillsContainer} ref={ref_skills_container}>
+      <div className={styles.skillsList} ref={ref_skills_container}>
         <h3>The Skills</h3>
         {
           skills.map((skill, id) => (
-            <div className={styles.skillContainer} key={id}>
-              <div className={styles.skillName}>
+            <div className={styles.skill} key={id}>
+              <div className={styles.skillImage}>
                 <Image
-                  className={styles.skillImage}
                   src={skill.path_logo}
                   width={70}
                   height={70}
