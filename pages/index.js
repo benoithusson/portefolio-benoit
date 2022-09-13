@@ -3,27 +3,52 @@ import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger' // https://greensock.com/forums/topic/29801-getting-error-cannot-use-import-statement-outside-a-module-when-importing-flip/
 import styles from '../styles/pages/Home.module.scss'
 import skills from '../data/skills'
-import List from '../components/ui/List'
 import Card from '../components/ui/Card'
 import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger)
 
+// const ref_itemList = useRef();
+//     const ref_item = useRef();
+
+
+//     useEffect(() => {
+//         const el_item = ref_itemList.current;
+
+//         const tl = gsap.timeline({
+//             scrollTrigger: {
+//                 trigger: el_item,
+//                 markers: true,
+//                 start: 'top 90%',
+//                 end: 'top 20%'
+//             }
+//         });
+
+//         tl.to()
+
 export default function Home(props) {
+
   // Ref Bloc Presentation
   const ref_left_home_card = useRef()
   const ref_right_home_card = useRef()
   const ref_left_home_card_content = useRef()
   const ref_right_home_card_content = useRef()
+
+  // Ref scroll element
   const ref_scroll = useRef()
+
+  // Ref skills
   const ref_skills_container = useRef()
+  const ref_skills = useRef();
+  const ref_skill = useRef();
 
   useEffect(() => {
     const el_left_home_card = ref_left_home_card.current
     const el_right_home_card = ref_right_home_card.current
     const el_left_home_card_content = ref_left_home_card_content.current
     const el_right_home_card_content = ref_right_home_card_content.current
-    const el_scroll = ref_scroll.current
+    const el_skills = ref_skills.current
+    const el_ref_skill = ref_skill.current
 
     // Animation bloc left
     gsap.to(
@@ -70,6 +95,7 @@ export default function Home(props) {
   return (
     <>
       <div className={styles.homeContainer}>
+
         {/* HERO CARDS */}
         <div className={styles.leftPresentationBloc} ref={ref_left_home_card}>
           <Card
@@ -105,24 +131,24 @@ export default function Home(props) {
         />
       </div>
 
-      {/* SKILLS LIST */}
+      {/* SKILLS */}
       <div className={styles.skillsContainer} ref={ref_skills_container}>
         <h3>The Skills</h3>
         {
           skills.map((skill, id) => (
-            <div className={styles.skillContainer}>
-              <List
-                listItemContainer={styles.skillItem}
-                nameItem={styles.skillName}
-                listItemKey={id}
-                pathImage={skill.path_logo}
-                widthImage={70}
-                heightImage={70}
-                altImage={skill.alt}
-                listItemName={styles.skillText}
-                item={skill.name}
-                key={id}
-              />
+            <div className={styles.skillContainer} key={id}>
+              <div className={styles.skillName}>
+                <Image
+                  className={styles.skillImage}
+                  src={skill.path_logo}
+                  width={70}
+                  height={70}
+                  alt={skill.alt}
+                />
+              </div>
+              <div className={styles.skillText}>
+                <p>{skill.name}</p>
+              </div>
             </div>
           ))
         }
