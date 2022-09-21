@@ -47,6 +47,18 @@ const skills = [
         "path_logo": "/ghost.svg",
         "alt_logo": "Logo of Ghost Headless CMS",
         "ref_skill": "ref_skill_ghost"
+    },
+    {
+        "name": "Styled Components",
+        "path_logo": "/styled-components.svg",
+        "alt_logo": "Logo of Styled Component",
+        "ref_skill": "ref_skill_styled_component"
+    },
+    {
+        "name": "GreenSock (GSAP)",
+        "path_logo": "/greensock.svg",
+        "alt_logo": "Logo of GreenSock",
+        "ref_skill": "ref_skill_greensock"
     }
 ]
 
