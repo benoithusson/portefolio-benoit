@@ -1,10 +1,11 @@
 import React from 'react'
 import Image from 'next/image';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Card(props) {
 
     return (
-        <div className={props.classCard} ref={props.refCard}>
+        <div className={props.classCard} ref={props.refCard} key={uuidv4()}>
             {
                 props.pathImage &&
                 <Image
