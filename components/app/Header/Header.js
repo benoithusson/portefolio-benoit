@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import Link from 'next/link'
-import styles from '../../styles/components/Header.module.scss'
+import styles from './Header.module.scss'
 import gsap from 'gsap'
 
 const Header = () => {

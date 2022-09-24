@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import Header from './app/Header'
-import Footer from './app/Footer'
-import styles from '../styles/layouts/Default.module.scss'
+import Header from './app/Header/Header'
+import Footer from './app/Footer/Footer'
+import styles from './Default.module.scss'
 
 const DefaultLayout = (props) => {
   return (
