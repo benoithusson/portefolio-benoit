@@ -93,16 +93,16 @@ export default function Home(props) {
   return (
     <>
       <div className={styles.containerHome}>
-        <div className={styles.blocLeft} ref={refLeftBloc}>
+        <div className={styles.leftBloc} ref={refLeftBloc}>
           <Card
-            classTextCard={styles.contentLeft}
+            classTextCard={styles.leftContent}
             textCard={'Frontend & UX'}
             textRef={refLeftBlocText}
           />
         </div>
-        <div className={styles.blocRight} ref={refRightBloc}>
+        <div className={styles.rightBloc} ref={refRightBloc}>
           <Card
-            classTextCard={styles.contentRight}
+            classTextCard={styles.rightContent}
             textCard={`My name is Benoît Thiennard. I am Frontend Developer with UX Skills.
             I speak Français, English und Deutsch. I am a fan of Xtrem Sports.`}
             textRef={refRightBlocText}
@@ -112,7 +112,7 @@ export default function Home(props) {
 
       {/* SKILLS */}
       <div className={styles.listOfSkills}>
-        <h3 className={styles.titleContainerListOkSkills}>The Skills</h3>
+        <h3 className={styles.titleContainerListOkSkills}>The skills</h3>
         {
           skills.map(skill => {
             return (
@@ -133,6 +133,15 @@ export default function Home(props) {
             )
           })
         }
+      </div>
+      {/* Projects */}
+      <div className={styles.listOfSkills}>
+        <h3 className={styles.titleContainerListOkSkills}>My projects</h3>
+        <Card
+          classTextCard={styles.leftContent}
+          textCard={'List of projects'}
+          textRef={refLeftBlocText}
+        />
       </div>
     </>
   )
