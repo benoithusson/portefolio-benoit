@@ -5,6 +5,7 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger' // https://greensock.com/for
 import styles from '../styles/pages/Index.module.scss'
 import skills from '../data/skills'
 import Card from '../components/ui/Card/Card'
+import ProjectCard from '../components/ui/Project-card/ProjectCard'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -112,7 +113,7 @@ export default function Home(props) {
 
       {/* SKILLS */}
       <div className={styles.listOfSkills}>
-        <h3 className={styles.titleContainerListOkSkills}>The skills</h3>
+        <h3 className={styles.titleContainer}>The skills</h3>
         {
           skills.map(skill => {
             return (
@@ -135,13 +136,11 @@ export default function Home(props) {
         }
       </div>
       {/* Projects */}
-      <div className={styles.listOfSkills}>
-        <h3 className={styles.titleContainerListOkSkills}>My projects</h3>
-        <Card
-          classTextCard={styles.leftContent}
-          textCard={'List of projects'}
-          textRef={refLeftBlocText}
-        />
+      <div className={styles.listOfProjects}>
+        {/* <h3 className={styles.titleContainer}>My projects</h3> */}
+        <ProjectCard />
+        <ProjectCard />
+        <ProjectCard />
       </div>
     </>
   )
