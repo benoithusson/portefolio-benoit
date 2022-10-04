@@ -73,23 +73,24 @@ export default function Home(props) {
   return (
     <>
       <div className={styles.containerBlocPresentation}>
-        {/* TODO: Component ? */}
+
         <div className={`${styles.bar} ${styles.topBar}`} ref={topBarRef}></div>
         <div className={`${styles.bar} ${styles.rightBar}`} ref={rightBarRef}></div>
         <div className={`${styles.bar} ${styles.leftBar}`} ref={leftBarRef}></div>
+
+        {/* Presentation */}
         <div className={styles.BlocPresentation}>
           <Card
-            classTextCard={styles.description}
-            textCard={`My name is Benoît Thiennard. I am Frontend Developer with UX Skills.
-            I speak Français, English und Deutsch. I am a fan of Xtrem Sports.`}
+            title={"Welcome."}
+            text={"I'm Benoît."}
             refCard={textPresentationRightRef}
           />
         </div>
       </div>
 
-      {/* SKILLS */}
+      {/* Skills */}
       <div style={{ padding: '0 200px', backgroundColor: 'black' }}>
-        {/* <div className={styles.listOfSkills}>
+        <div className={styles.listOfSkills}>
           <h3 className={styles.title}>The skills</h3>
           {
             skills.map(skill => {
@@ -111,7 +112,7 @@ export default function Home(props) {
               )
             })
           }
-        </div> */}
+        </div>
         {/* Projects */}
         {/* <div className={styles.listOfProjects}>
           <div>

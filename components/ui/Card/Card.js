@@ -4,14 +4,24 @@ import styles from './Card.module.scss';
 const Card = (props) => {
 
     const {
-        textCard,
-        refCard
+        text,
+        refCard,
+        title
     } = props;
 
     return (
         <>
             <div className={styles.containerCard} ref={refCard}>
-                <p className={styles.textCard}>{textCard}</p>
+                {title &&
+                    <div className={styles.containerTitle}>
+                        <h2 className={styles.title}>{title}</h2>
+                    </div>
+                }
+                {text &&
+                    <div className={styles.containerText}>
+                        <p className={styles.text}>{text}</p>
+                    </div>
+                }
             </div>
         </>
     )

@@ -1,14 +1,17 @@
 @import '../styles/base/_utilities.scss';
 @import '../styles/abstracts/_variables.scss';
 
-.containerCard {
-    background-color: gray;
+.containerTitle {
+    background-color: red;
 }
 
-.textCard {
+.title {
     text-align: center;
-    font-size: $text-3xl;
-    line-height: $line-height-3xl;
-    font-weight: 100;
-    padding: 0 100px;
+    font-size: 150px;
+    font-weight: normal;
+}
+
+
+.text {
+    font-size: 50px;
 }
