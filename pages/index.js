@@ -16,30 +16,36 @@ export default function Home(props) {
   // Ref bars
   const topBarRef = useRef();
   const rightBarRef = useRef();
-  const bottomBarRef = useRef();
+  // const bottomBarRef = useRef();
   const leftBarRef = useRef();
 
   // Ref skills
   const refsSkills = useRef([]);
   refsSkills.current = [];
 
+  // Ref text
+  const textPresentationLeftRef = useRef();
+  const textPresentationRightRef = useRef();
+
   useEffect(() => {
     let el_topBar = topBarRef.current;
     let el_rightBar = rightBarRef.current;
-    let el_bottomBar = bottomBarRef.current;
+    // let el_bottomBar = bottomBarRef.current;
     let el_leftBar = leftBarRef.current;
+    let el_textPresentationLeft = textPresentationLeftRef.current;
+    let el_textPresentationRight = textPresentationRightRef.current;
 
     gsap.set(el_topBar, { transformOrigin: 'right' })
-    gsap.fromTo(el_topBar, { scaleX: 0 }, { scaleX: 1, duration: 2, ease: 'Power4.easeOut' })
-
     gsap.set(el_rightBar, { transformOrigin: 'top right' })
-    gsap.fromTo(el_rightBar, { scaleY: 0 }, { scaleY: 1, duration: 2, ease: 'Power4.easeOut' })
-
-    gsap.set(el_bottomBar, { transformOrigin: 'left bottom' })
-    gsap.fromTo(el_bottomBar, { scaleX: 0 }, { scaleX: 1, duration: 2, ease: 'Power4.easeOut' })
-
     gsap.set(el_leftBar, { transformOrigin: 'bottom right' })
+
+    gsap.fromTo(el_topBar, { scaleX: 0 }, { scaleX: 1, duration: 2, ease: 'Power4.easeOut' })
+    gsap.fromTo(el_rightBar, { scaleY: 0 }, { scaleY: 1, duration: 2, ease: 'Power4.easeOut' })
     gsap.fromTo(el_leftBar, { scaleY: 0 }, { scaleY: 1, duration: 2, ease: 'Power4.easeOut' })
+
+    gsap.fromTo(el_textPresentationLeft, { opacity: 0 }, { opacity: 1, duration: 3, ease: 'Power4.easeOut' })
+    gsap.fromTo(el_textPresentationRight, { opacity: 0 }, { opacity: 1, duration: 3, ease: 'Power4.easeOut' })
+
   }, [])
 
   const addToSkillRefs = (el) => {
@@ -70,12 +76,12 @@ export default function Home(props) {
         {/* TODO: Component ? */}
         <div className={`${styles.bar} ${styles.topBar}`} ref={topBarRef}></div>
         <div className={`${styles.bar} ${styles.rightBar}`} ref={rightBarRef}></div>
-        <div className={`${styles.bar} ${styles.bottomBar}`} ref={bottomBarRef}></div>
         <div className={`${styles.bar} ${styles.leftBar}`} ref={leftBarRef}></div>
         <div className={styles.leftBloc}>
           <Card
             classTextCard={styles.leftContent}
             textCard={'Frontend'}
+            refCard={textPresentationLeftRef}
           />
         </div>
         <div className={styles.rightBloc}>
@@ -83,6 +89,7 @@ export default function Home(props) {
             classTextCard={styles.rightContent}
             textCard={`My name is Benoît Thiennard. I am Frontend Developer with UX Skills.
             I speak Français, English und Deutsch. I am a fan of Xtrem Sports.`}
+            refCard={textPresentationRightRef}
           />
         </div>
       </div>
