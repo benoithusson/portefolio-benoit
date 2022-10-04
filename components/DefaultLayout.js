@@ -6,7 +6,6 @@ import styles from './Default.module.scss'
 const DefaultLayout = (props) => {
   return (
     <>
-      <Header />
       <div className={styles.page_wrapper}>{props.children}</div>
       <Footer />
     </>

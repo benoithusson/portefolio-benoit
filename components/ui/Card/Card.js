@@ -6,14 +6,13 @@ const Card = (props) => {
         classCard,
         containerRef,
         classTextCard,
-        textRef,
         textCard
     } = props;
 
     return (
         <>
             <div className={classCard} ref={containerRef}>
-                <p className={classTextCard} ref={textRef}>{textCard}</p>
+                <p className={classTextCard}>{textCard}</p>
             </div>
         </>
     )

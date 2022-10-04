@@ -8,7 +8,38 @@
     align-items: center;
     position: relative;
     width: 100%;
-    height: 80vh;
+    height: 100vh;
+}
+
+.bar {
+    background-color: white;
+    position: absolute;
+}
+
+.topBar {
+    top: 0;
+    width: 100%;
+    height: 20px;
+}
+
+.leftBar {
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 100%;
+}
+
+.bottomBar {
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+}
+
+.rightBar {
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
 }
 
 .leftBloc, .rightBloc {

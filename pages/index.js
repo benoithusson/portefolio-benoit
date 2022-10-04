@@ -13,15 +13,34 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function Home(props) {
 
-  // Ref Bloc Presentation
-  const refLeftBloc = useRef()
-  const refRightBloc = useRef()
-  const refLeftBlocText = useRef()
-  const refRightBlocText = useRef()
+  // Ref bars
+  const topBarRef = useRef();
+  const rightBarRef = useRef();
+  const bottomBarRef = useRef();
+  const leftBarRef = useRef();
 
   // Ref skills
   const refsSkills = useRef([]);
   refsSkills.current = [];
+
+  useEffect(() => {
+    let el_topBar = topBarRef.current;
+    let el_rightBar = rightBarRef.current;
+    let el_bottomBar = bottomBarRef.current;
+    let el_leftBar = leftBarRef.current;
+
+    gsap.set(el_topBar, { transformOrigin: 'right' })
+    gsap.fromTo(el_topBar, { scaleX: 0 }, { scaleX: 1, duration: 2, ease: 'Power4.easeOut' })
+
+    gsap.set(el_rightBar, { transformOrigin: 'top right' })
+    gsap.fromTo(el_rightBar, { scaleY: 0 }, { scaleY: 1, duration: 2, ease: 'Power4.easeOut' })
+
+    gsap.set(el_bottomBar, { transformOrigin: 'left bottom' })
+    gsap.fromTo(el_bottomBar, { scaleX: 0 }, { scaleX: 1, duration: 2, ease: 'Power4.easeOut' })
+
+    gsap.set(el_leftBar, { transformOrigin: 'bottom right' })
+    gsap.fromTo(el_leftBar, { scaleY: 0 }, { scaleY: 1, duration: 2, ease: 'Power4.easeOut' })
+  }, [])
 
   const addToSkillRefs = (el) => {
     // https://www.youtube.com/watch?v=ygPIjzhKB2s
@@ -48,11 +67,15 @@ export default function Home(props) {
   return (
     <>
       <div className={styles.containerBlocsHome}>
+        {/* TODO: Component ? */}
+        <div className={`${styles.bar} ${styles.topBar}`} ref={topBarRef}></div>
+        <div className={`${styles.bar} ${styles.rightBar}`} ref={rightBarRef}></div>
+        <div className={`${styles.bar} ${styles.bottomBar}`} ref={bottomBarRef}></div>
+        <div className={`${styles.bar} ${styles.leftBar}`} ref={leftBarRef}></div>
         <div className={styles.leftBloc}>
           <Card
             classTextCard={styles.leftContent}
             textCard={'Frontend'}
-            textRef={refLeftBlocText}
           />
         </div>
         <div className={styles.rightBloc}>
@@ -60,15 +83,13 @@ export default function Home(props) {
             classTextCard={styles.rightContent}
             textCard={`My name is Benoît Thiennard. I am Frontend Developer with UX Skills.
             I speak Français, English und Deutsch. I am a fan of Xtrem Sports.`}
-            textRef={refRightBlocText}
           />
         </div>
       </div>
 
       {/* SKILLS */}
-      <div style={{ padding: '0 200px' }}>
-        <div className={styles.listOfSkills}>
-          {/* TODO: component for </h3> ? */}
+      <div style={{ padding: '0 200px', backgroundColor: 'black' }}>
+        {/* <div className={styles.listOfSkills}>
           <h3 className={styles.title}>The skills</h3>
           {
             skills.map(skill => {
@@ -90,13 +111,12 @@ export default function Home(props) {
               )
             })
           }
-        </div>
+        </div> */}
         {/* Projects */}
-        <div className={styles.listOfProjects}>
+        {/* <div className={styles.listOfProjects}>
           <div>
             <h3 className={styles.title}>The Projects</h3>
           </div>
-          {/* TODO : put style into module.scss */}
           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
             {projects.map((project, index) => {
               return (
@@ -110,7 +130,7 @@ export default function Home(props) {
               )
             })}
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   )
