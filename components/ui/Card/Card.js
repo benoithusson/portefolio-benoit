@@ -1,19 +1,17 @@
 import React from 'react';
+import styles from './Card.module.scss';
 
 const Card = (props) => {
 
     const {
-        classCard,
-        containerRef,
-        classTextCard,
         textCard,
         refCard
     } = props;
 
     return (
         <>
-            <div className={classCard} ref={containerRef} ref={refCard}>
-                <p className={classTextCard}>{textCard}</p>
+            <div className={styles.containerCard} ref={refCard}>
+                <p className={styles.textCard}>{textCard}</p>
             </div>
         </>
     )

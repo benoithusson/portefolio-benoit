@@ -72,21 +72,14 @@ export default function Home(props) {
 
   return (
     <>
-      <div className={styles.containerBlocsHome}>
+      <div className={styles.containerBlocPresentation}>
         {/* TODO: Component ? */}
         <div className={`${styles.bar} ${styles.topBar}`} ref={topBarRef}></div>
         <div className={`${styles.bar} ${styles.rightBar}`} ref={rightBarRef}></div>
         <div className={`${styles.bar} ${styles.leftBar}`} ref={leftBarRef}></div>
-        <div className={styles.leftBloc}>
+        <div className={styles.BlocPresentation}>
           <Card
-            classTextCard={styles.leftContent}
-            textCard={'Frontend'}
-            refCard={textPresentationLeftRef}
-          />
-        </div>
-        <div className={styles.rightBloc}>
-          <Card
-            classTextCard={styles.rightContent}
+            classTextCard={styles.description}
             textCard={`My name is Benoît Thiennard. I am Frontend Developer with UX Skills.
             I speak Français, English und Deutsch. I am a fan of Xtrem Sports.`}
             refCard={textPresentationRightRef}
