@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Header from './app/Header/Header'
 import Footer from './app/Footer/Footer'
 import styles from './Default.module.scss'

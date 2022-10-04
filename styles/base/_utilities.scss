@@ -8,110 +8,110 @@
 
 /* PADDING LEFT AND RIGHT */
 .container-px {
-    padding-left: $p-xs;
-    padding-right: $p-xs;
+    padding-left: $px-xs;
+    padding-right: $px-xs;
 
     @include sm {
-        padding-left: $p-sm;
-        padding-right: $p-sm;
+        padding-left: $px-sm;
+        padding-right: $px-sm;
     }
 
     @include md {
-        padding-left: $p-md;
-        padding-right: $p-md;
+        padding-left: $px-md;
+        padding-right: $px-md;
     }
 
     @include lg {
-        padding-left: $p-lg;
-        padding-right: $p-lg;
+        padding-left: $px-lg;
+        padding-right: $px-lg;
     }
 }
 
 /* PADDING LEFT */
 .container-pl {
-    padding-left: $p-xs;
+    padding-left: $px-xs;
 
     @include sm {
-        padding-left: $p-sm;
+        padding-left: $px-sm;
     }
 
     @include md {
-        padding-left: $p-md;
+        padding-left: $px-md;
     }
 
     @include lg {
-        padding-left: $p-lg;
+        padding-left: $px-lg;
     }
 }
 
 /* PADDING RIGHT */
 .container-pr {
-    padding-right: $p-xs;
+    padding-right: $px-xs;
 
     @include sm {
-        padding-right: $p-sm;
+        padding-right: $px-sm;
     }
 
     @include md {
-        padding-right: $p-md;
+        padding-right: $px-md;
     }
 
     @include lg {
-        padding-right: $p-lg;
+        padding-right: $px-lg;
     }
 }
 
 /* PADDING TOP AND BOTTOM */
 .container-py {
-    padding-top: $p-xs;
-    padding-bottom: $p-xs;
+    padding-top: $pt-xs;
+    padding-bottom: $pb-xs;
 
     @include sm {
-        padding-top: $p-sm;
-        padding-bottom: $p-sm;
+        padding-top: $pt-sm;
+        padding-bottom: $pb-sm;
     }
 
     @include md {
-        padding-top: $p-md;
-        padding-bottom: $p-md;
+        padding-top: $pt-md;
+        padding-bottom: $pb-md;
     }
 
     @include lg {
-        padding-top: $p-lg;
-        padding-bottom: $p-lg;
+        padding-top: $pt-lg;
+        padding-bottom: $pb-lg;
     }
 }
 
 /* PADDING TOP */
 .container-pt {
-    padding-top: $p-xs;
+    padding-top: $pt-xs;
 
     @include sm {
-        padding-top: $p-sm;
+        padding-top: $pb-sm;
     }
 
     @include md {
-        padding-top: $p-md;
+        padding-top: $pt-md;
     }
 
     @include lg {
-        padding-top: $p-lg;
+        padding-top: $pt-lg;
     }
 }
 
 /* PADDING BOTTOM */
 .container-pb {
-    padding-bottom: $p-xs;
+    padding-bottom: $pb-xs;
 
     @include sm {
-        padding-bottom: $p-sm;
+        padding-bottom: $pb-sm;
     }
 
     @include md {
-        padding-bottom: $p-md;
+        padding-bottom: $pb-md;
     }
 
     @include lg {
-        padding-bottom: $p-lg;
+        padding-bottom: $pb-lg;
     }
 }

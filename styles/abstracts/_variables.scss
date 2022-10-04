@@ -32,12 +32,26 @@ $line-height-3xl: 2.25rem; /* 36px */
 $line-height-4xl: 2.5rem; /* 40px */
 
 /* Spacing variables */
-$mb-heading: 1em; /* margin-bottom */
 $mt-heading: 1em; /* margin-top */
-$p-xs: 15px;
-$p-sm: 20px;
-$p-md: 30px;
-$p-lg: 60px;
+$mb-heading: 1em; /* margin-bottom */
+
+$pt-xs: 15px; /* padding-top */
+$pb-xs: 15px; /* padding-bottom */
+
+$pt-sm: 20px;
+$pb-sm: 20px;
+
+$pt-md: 30px;
+$pb-md: 30px;
+
+$pt-lg: 30px;
+$pb-lg: 35px;
+
+/* Padding left and right - layout */
+$px-xs: 15px;
+$px-sm: 30px;
+$px-md: 100px;
+$px-lg: 200px;
 
 /* Container variables */
 $container-max-width: 1440px;

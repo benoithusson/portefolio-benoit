@@ -2,7 +2,7 @@ const projects = [
     {
         "name": "elleXX",
         "description": "Id ex deserunt voluptate amet occaecat nostrud nulla. Fugiat occaecat est amet aute. Duis dolore magna aliquip do nulla dolore amet labore sunt amet exercitation est commodo.",
-        "image_path": "",
+        "image_path": "/ellexx.svg",
         "stacks": [
             { name: 'Ghost CMS' },
             { name: 'Tailwind CSS' },
@@ -13,7 +13,7 @@ const projects = [
     {
         "name": "CH++",
         "description": "Id ex deserunt voluptate amet occaecat nostrud nulla. Fugiat occaecat est amet aute. Duis dolore magna aliquip do nulla dolore amet labore sunt amet exercitation est commodo.",
-        "image_path": "",
+        "image_path": "/chplusplus.svg",
         "stacks": [
             { name: 'Ghost CMS' },
             { name: 'SCSS' },
@@ -23,7 +23,7 @@ const projects = [
     {
         "name": "Audemars Piguet",
         "description": "Id ex deserunt voluptate amet occaecat nostrud nulla. Fugiat occaecat est amet aute. Duis dolore magna aliquip do nulla dolore amet labore sunt amet exercitation est commodo.",
-        "image_path": "",
+        "image_path": "/audemars-piguet.svg",
         "stacks": [
             { name: 'ReactJS' },
             { name: 'Module SCSS' },
@@ -33,7 +33,7 @@ const projects = [
     {
         "name": "Frontify",
         "description": "Id ex deserunt voluptate amet occaecat nostrud nulla. Fugiat occaecat est amet aute. Duis dolore magna aliquip do nulla dolore amet labore sunt amet exercitation est commodo.",
-        "image_path": "",
+        "image_path": "/frontify.svg",
         "stacks": [
             { name: 'ReactJS' },
             { name: 'Module CSS' },
@@ -41,4 +41,4 @@ const projects = [
     },
 ]
 
-export default skills
+export default projects;

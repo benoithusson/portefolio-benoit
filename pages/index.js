@@ -3,9 +3,10 @@ import Image from 'next/image';
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger' // https://greensock.com/forums/topic/29801-getting-error-cannot-use-import-statement-outside-a-module-when-importing-flip/
 import styles from '../styles/pages/Index.module.scss'
-import skills from '../data/skills'
 import Card from '../components/ui/Card/Card'
 import ProjectCard from '../components/ui/Project-card/ProjectCard'
+import skills from '../data/skills'
+import projects from '../data/projects'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -93,11 +94,11 @@ export default function Home(props) {
 
   return (
     <>
-      <div className={styles.containerHome}>
+      <div className={styles.containerBlocsHome}>
         <div className={styles.leftBloc} ref={refLeftBloc}>
           <Card
             classTextCard={styles.leftContent}
-            textCard={'Frontend & UX'}
+            textCard={'Frontend'}
             textRef={refLeftBlocText}
           />
         </div>
@@ -112,35 +113,49 @@ export default function Home(props) {
       </div>
 
       {/* SKILLS */}
-      <div className={styles.listOfSkills}>
-        <h3 className={styles.titleContainer}>The skills</h3>
-        {
-          skills.map(skill => {
-            return (
-              <div className={styles.skill} key={skill.name} ref={addToSkillRefs}>
-                <div className={styles.imageSkill}>
-                  <Image
-                    src={skill.path_logo}
-                    width={90}
-                    height={70}
-                    alt={skill.alt}
-                    quality={100}
-                  />
+      <div style={{ padding: '0 200px' }}>
+        <div className={styles.listOfSkills}>
+          <h3 className={styles.title}>The skills</h3>
+          {
+            skills.map(skill => {
+              return (
+                <div className={styles.skill} key={skill.name} ref={addToSkillRefs}>
+                  <div className={styles.imageSkill}>
+                    <Image
+                      src={skill.path_logo}
+                      width={90}
+                      height={70}
+                      alt={skill.alt}
+                      quality={100}
+                    />
+                  </div>
+                  <div className={styles.nameSkill}>
+                    <p>{skill.name}</p>
+                  </div>
                 </div>
-                <div className={styles.nameSkill}>
-                  <p>{skill.name}</p>
-                </div>
-              </div>
-            )
-          })
-        }
-      </div>
-      {/* Projects */}
-      <div className={styles.listOfProjects}>
-        {/* <h3 className={styles.titleContainer}>My projects</h3> */}
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
+              )
+            })
+          }
+        </div>
+        {/* Projects */}
+        <div className={styles.listOfProjects}>
+          <div>
+            <h3 className={styles.titleContainer}>The Projects</h3>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}>
+            {projects.map((project, index) => {
+              return (
+                <ProjectCard
+                  key={index}
+                  projectImage={project.image_path}
+                  projectTitle={project.name}
+                  projectDescription={project.description}
+                  projectStack={project.stacks}
+                />
+              )
+            })}
+          </div>
+        </div>
       </div>
     </>
   )

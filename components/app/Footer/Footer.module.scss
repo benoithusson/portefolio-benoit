@@ -5,9 +5,8 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin-top: $p-sm;
+    margin-top: $pt-sm;
     width: 100%;
-
     background-color: $bg-color-primary;
     border-top: $border-primary;
 }
@@ -18,15 +17,17 @@
 
     @include md {
         flex-direction: row;
-        padding-top: $p-md;
-        padding-right: $p-md;
-        padding-bottom: $p-md;
-        padding-left: $p-md;
+        padding-top: $pt-md;
+        padding-right: $px-md;
+        padding-bottom: $pb-md;
+        padding-left: $px-md;
     }
 
     @include lg {
-        padding-top: $p-lg;
-        padding-bottom: $p-lg;
+        padding-top: $pt-lg;
+        padding-right: $px-lg;
+        padding-bottom: $pb-lg;
+        padding-left: $px-lg;
     }
 }
 
@@ -66,24 +67,33 @@
 }
 
 .nav__item {
-    @extend .container-py;
     width: 100%;
     border-bottom: $border-primary;
     list-style: none;
+    padding-top: $pt-xs;
+    padding-bottom: $pb-xs;
+
+    @include sm {
+        padding-top: $pt-sm;
+        padding-bottom: $pb-sm;
+    }
 
     @include md {
-        padding-top: 0;
-        padding-right: $p-lg;
-        padding-bottom: 0;
-        padding-left: $p-lg;
+        padding-top: $pt-md;
+        padding-bottom: $pb-md;
         width: auto;
         border-bottom: none;
+    }
+
+    @include lg {
+        padding-top: $pt-lg;
+        padding-bottom: $pb-lg;
     }
 }
 
 .footer__socials {
-    padding-top: $p-xs;
-    padding-bottom: $p-xs;
+    padding-top: $pt-xs;
+    padding-bottom: $pb-xs;
 
     a {
         padding-left: 10px;
@@ -101,22 +111,22 @@
 .footer__bottom {
     @include md {
         display: flex;
-        padding-right: $p-md;
-        padding-left: $p-md;
+        padding-right: $px-md;
+        padding-left: $px-md;
         border-top: $border-primary;
     }
 }
 
 .footer__copyright {
-    padding-top: $p-xs;
-    padding-bottom: $p-xs;
+    padding-top: $pt-xs;
+    padding-bottom: $pb-xs;
     border-top: $border-primary;
 
     @include md {
         display: flex;
         justify-content: flex-start;
-        padding-top: $p-sm;
-        padding-bottom: $p-sm;
+        padding-top: $pt-sm;
+        padding-bottom: $pb-sm;
         width: 100%;
         border-top: none;
     }
@@ -126,8 +136,8 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    padding-top: $p-sm;
-    padding-bottom: $p-sm;
+    padding-top: $pt-sm;
+    padding-bottom: $pb-sm;
     border-top: $border-primary;
 
     a {

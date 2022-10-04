@@ -1,23 +1,31 @@
-// containerProject
-// containerImageProject
-// containerNameProject
-// containerDescriptionProject
-// containerStacksProject
+@import '../../../styles/abstracts/variables';
 
 .container {
-    background-color: green;
-    max-width: 300px;
-    max-height: 400px;
+    min-height: 400px;
+    max-width: 350px;
+    border-right: $border-primary;
 }
 
-.containerName {
-    background-color: pink;
+.containerImage {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerTitle {
+    padding: 20px;
+    text-align: center;
 }
 
 .containerDescription {
-    background-color: skyblue;
+    padding: 20px;
+    min-height: 100px;
 }
 
 .containerStacks {
-    background-color: greenyellow;
+    display: flex;
+    flex-direction: column;;
+    padding: 20px;
+    min-height: 100px;
 }

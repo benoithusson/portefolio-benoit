@@ -2,6 +2,5 @@
 @import '../styles/abstracts/_variables.scss';
 
 .page_wrapper {
-    @extend .container-px;
     min-height: 100vh;
 }
