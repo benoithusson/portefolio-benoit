@@ -12,10 +12,10 @@
 }
 
 .leftBloc, .rightBloc {
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 0%;
+    width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0);
     color: white;
@@ -46,13 +46,14 @@
 
 /**** Skill ****/
 .listOfSkills {
-    margin-top: 150px;
+    padding-top: 150px;
 }
 
 .title {
-    padding: 20px 0 0 20px;
+    padding: 50px 0;
     font-weight: 100;
     font-size: $text-3xl;
+    margin: 0;
 }
 
 .skill {
@@ -89,6 +90,5 @@
 .listOfProjects {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    margin-top: 150px;
+    padding-top: 150px;
 }

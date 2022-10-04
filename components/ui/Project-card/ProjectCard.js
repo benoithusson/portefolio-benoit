@@ -14,19 +14,21 @@ export default function ProjectCard(props) {
 
     return (
         <>
-            <div className={styles.container} ref={containerRef}>
-                <div className={styles.containerImage}>
+            <div className={styles.ProjectContainer} ref={containerRef}>
+                <div className={styles.test}></div>
+                <div className={styles.projectImage}>
                     <img src={projectImage} width={120} height={120} alt="todo" />
                 </div>
-                <div className={styles.containerTitle}>
+                <div className={styles.projectTitle}>
                     <p>{projectTitle}</p>
                 </div>
-                <div className={styles.containerDescription}>
+                <div className={styles.projectDescription}>
                     <p>{projectDescription}</p>
                 </div>
-                <div className={styles.containerStacks}>
+                <div className={styles.projectStacks}>
                     {projectStack.map(stack => (
                         <Tag
+                            key={stack.name}
                             stackName={stack.name}
                         />
                     ))}

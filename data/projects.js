@@ -39,6 +39,33 @@ const projects = [
             { name: 'Module CSS' },
         ]
     },
+    {
+        "name": "Frontify",
+        "description": "Id ex deserunt voluptate amet occaecat nostrud nulla. Fugiat occaecat est amet aute. Duis dolore magna aliquip do nulla dolore amet labore sunt amet exercitation est commodo.",
+        "image_path": "/frontify.svg",
+        "stacks": [
+            { name: 'ReactJS' },
+            { name: 'Module CSS' },
+        ]
+    },
+    {
+        "name": "Frontify",
+        "description": "Id ex deserunt voluptate amet occaecat nostrud nulla. Fugiat occaecat est amet aute. Duis dolore magna aliquip do nulla dolore amet labore sunt amet exercitation est commodo.",
+        "image_path": "/frontify.svg",
+        "stacks": [
+            { name: 'ReactJS' },
+            { name: 'Module CSS' },
+        ]
+    },
+    {
+        "name": "Frontify",
+        "description": "Id ex deserunt voluptate amet occaecat nostrud nulla. Fugiat occaecat est amet aute. Duis dolore magna aliquip do nulla dolore amet labore sunt amet exercitation est commodo.",
+        "image_path": "/frontify.svg",
+        "stacks": [
+            { name: 'ReactJS' },
+            { name: 'Module CSS' },
+        ]
+    },
 ]
 
 export default projects;

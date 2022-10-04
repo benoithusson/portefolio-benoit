@@ -31,53 +31,6 @@ export default function Home(props) {
   }
 
   useEffect(() => {
-    const elLeftBloc = refLeftBloc.current
-    const elRightBloc = refRightBloc.current
-    const elLeftBlocText = refLeftBlocText.current
-    const elRightBlocText = refRightBlocText.current
-
-    // Animation bloc left
-    gsap.to(
-      elLeftBloc,
-      {
-        display: 'flex',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '50%',
-        ease: 'Power2.easeIn',
-        duration: 1,
-      })
-    // Animation content left
-    gsap.fromTo(
-      elLeftBlocText,
-      { opacity: 0 },
-      { opacity: 1, duration: 2.5, ease: 'Power2.easeIn' },
-    )
-
-    // Animation bloc right
-    gsap.to(
-      elRightBloc,
-      {
-        display: 'flex',
-        position: 'absolute',
-        top: 0,
-        right: 0,
-        width: '50%',
-        ease: 'Power2.easeIn',
-        duration: 1,
-        transformOrigin: 'center',
-      })
-
-    // Animation content right
-    gsap.fromTo(
-      elRightBlocText,
-      { opacity: 0 },
-      { opacity: 1, duration: 2.5, ease: 'Power2.easeIn' },
-    )
-  }, [])
-
-  useEffect(() => {
     refsSkills.current.forEach(skill => {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -95,14 +48,14 @@ export default function Home(props) {
   return (
     <>
       <div className={styles.containerBlocsHome}>
-        <div className={styles.leftBloc} ref={refLeftBloc}>
+        <div className={styles.leftBloc}>
           <Card
             classTextCard={styles.leftContent}
             textCard={'Frontend'}
             textRef={refLeftBlocText}
           />
         </div>
-        <div className={styles.rightBloc} ref={refRightBloc}>
+        <div className={styles.rightBloc}>
           <Card
             classTextCard={styles.rightContent}
             textCard={`My name is Benoît Thiennard. I am Frontend Developer with UX Skills.
@@ -115,6 +68,7 @@ export default function Home(props) {
       {/* SKILLS */}
       <div style={{ padding: '0 200px' }}>
         <div className={styles.listOfSkills}>
+          {/* TODO: component for </h3> ? */}
           <h3 className={styles.title}>The skills</h3>
           {
             skills.map(skill => {
@@ -140,9 +94,10 @@ export default function Home(props) {
         {/* Projects */}
         <div className={styles.listOfProjects}>
           <div>
-            <h3 className={styles.titleContainer}>The Projects</h3>
+            <h3 className={styles.title}>The Projects</h3>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}>
+          {/* TODO : put style into module.scss */}
+          <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
             {projects.map((project, index) => {
               return (
                 <ProjectCard
