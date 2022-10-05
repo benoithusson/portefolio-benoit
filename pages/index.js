@@ -3,10 +3,11 @@ import Image from 'next/image';
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger' // https://greensock.com/forums/topic/29801-getting-error-cannot-use-import-statement-outside-a-module-when-importing-flip/
 import styles from '../styles/pages/Index.module.scss'
-import Card from '../components/ui/Card/Card'
-import ProjectCard from '../components/ui/Project-card/ProjectCard'
+import Card from '../components/01-atoms/Card/Card'
+import ProjectCard from '../components/01-atoms/Project-card/ProjectCard'
 import skills from '../data/skills'
 import projects from '../data/projects'
+import Title from '../components/01-atoms/Title/Title'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -54,7 +55,6 @@ export default function Home(props) {
         start: 'top 75%',
         end: 'center 90%',
         scrub: 1,
-        markers: true
       }
     })
 
@@ -79,12 +79,13 @@ export default function Home(props) {
         </div>
       </div>
 
+      {/* TODO */}
       <div style={{ padding: '0 200px', backgroundColor: 'black' }}>
         {/* Skills */}
         <div className={styles.listOfSkills} ref={listOfSkillsRef}>
-          <div className={styles.containerTitle}>
-            <h3 className={styles.title}>The skills</h3>
-          </div>
+          <Title
+            title="The skills"
+          />
           <div className={styles.containerSkills}>
             {
               skills.map(skill => {
@@ -110,9 +111,10 @@ export default function Home(props) {
         </div>
         {/* Projects */}
         <div className={styles.listOfProjects}>
-          <div>
-            <h3 className={styles.title}>The Projects</h3>
-          </div>
+          <Title
+            title='The projects'
+            containerMaxWidth='200px'
+          />
           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
             {projects.map((project, index) => {
               return (

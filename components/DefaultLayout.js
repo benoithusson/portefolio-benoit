@@ -1,6 +1,5 @@
 import React from 'react'
-import Header from './app/Header/Header'
-import Footer from './app/Footer/Footer'
+import Footer from './04-templates/Footer/Footer'
 import styles from './Default.module.scss'
 
 const DefaultLayout = (props) => {
