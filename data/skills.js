@@ -43,12 +43,6 @@ const skills = [
         "ref_skill": "ref_skill_tailwind"
     },
     {
-        "name": "Ghost Headless CMS",
-        "path_logo": "/ghost.svg",
-        "alt_logo": "Logo of Ghost Headless CMS",
-        "ref_skill": "ref_skill_ghost"
-    },
-    {
         "name": "Styled Components",
         "path_logo": "/styled-components-white.svg",
         "alt_logo": "Logo of Styled Component",

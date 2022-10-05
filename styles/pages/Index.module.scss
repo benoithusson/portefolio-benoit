@@ -49,8 +49,10 @@
 
 /**** Skill ****/
 .listOfSkills {
-    padding-top: 150px;
+    padding-top: 100px;
     color: white;
+    display: flex;
+    flex-direction: column;
 }
 
 .title {
@@ -60,16 +62,20 @@
     margin: 0;
 }
 
+.containerSkills {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .skill {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 5px;
-    min-height: 150px;
-    // TODO : changer variable border
-    // border-bottom: 1px solid white;
-    opacity: 0;
+    padding: 10px 5px;
+    margin: 20px 0;
+    width: 25%;
 
     &:hover {
         cursor: default;

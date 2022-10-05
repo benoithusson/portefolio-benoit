@@ -16,21 +16,18 @@ export default function Home(props) {
   // Ref bars
   const topBarRef = useRef();
   const rightBarRef = useRef();
-  // const bottomBarRef = useRef();
   const leftBarRef = useRef();
-
-  // Ref skills
-  const refsSkills = useRef([]);
-  refsSkills.current = [];
 
   // Ref text
   const textPresentationLeftRef = useRef();
   const textPresentationRightRef = useRef();
 
+  // Ref skill
+  const containerListOfSkillsTitleRef = useRef();
+
   useEffect(() => {
     let el_topBar = topBarRef.current;
     let el_rightBar = rightBarRef.current;
-    // let el_bottomBar = bottomBarRef.current;
     let el_leftBar = leftBarRef.current;
     let el_textPresentationLeft = textPresentationLeftRef.current;
     let el_textPresentationRight = textPresentationRightRef.current;
@@ -48,37 +45,29 @@ export default function Home(props) {
 
   }, [])
 
-  const addToSkillRefs = (el) => {
-    // https://www.youtube.com/watch?v=ygPIjzhKB2s
-    if (el && !refsSkills.current.includes(el)) {
-      refsSkills.current.push(el);
-    }
-  }
-
   useEffect(() => {
-    refsSkills.current.forEach(skill => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: skill,
-          start: 'center 65%',
-          end: 'bottom 70%',
-          scrub: 1
-        }
-      })
-      tl.to(skill, { opacity: 0, duration: 1 })
-      tl.to(skill, { opacity: 1, duration: 1 })
+    let el_containerListOfSkillsTitle = containerListOfSkillsTitleRef.current;
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: el_containerListOfSkillsTitle,
+        start: 'center 75%',
+        end: 'bottom 90%',
+        scrub: 1,
+      }
     })
+
+    tl.set(el_containerListOfSkillsTitle, { transformOrigin: 'bottom left' })
+    tl.fromTo(el_containerListOfSkillsTitle, { scaleY: 0 }, { scaleY: 1, duration: 1 })
+
   }, [])
 
   return (
     <>
+      {/* Presentation Bloc */}
       <div className={styles.containerBlocPresentation}>
-
         <div className={`${styles.bar} ${styles.topBar}`} ref={topBarRef}></div>
         <div className={`${styles.bar} ${styles.rightBar}`} ref={rightBarRef}></div>
         <div className={`${styles.bar} ${styles.leftBar}`} ref={leftBarRef}></div>
-
-        {/* Presentation */}
         <div className={styles.BlocPresentation}>
           <Card
             title={"Welcome."}
@@ -88,30 +77,35 @@ export default function Home(props) {
         </div>
       </div>
 
-      {/* Skills */}
       <div style={{ padding: '0 200px', backgroundColor: 'black' }}>
+
+        {/* Skills */}
         <div className={styles.listOfSkills}>
-          <h3 className={styles.title}>The skills</h3>
-          {
-            skills.map(skill => {
-              return (
-                <div className={styles.skill} key={skill.name} ref={addToSkillRefs}>
-                  <div className={styles.imageSkill}>
-                    <Image
-                      src={skill.path_logo}
-                      width={90}
-                      height={70}
-                      alt={skill.alt}
-                      quality={100}
-                    />
+          <div className={styles.containerTitle} ref={containerListOfSkillsTitleRef}>
+            <h3 className={styles.title}>The skills</h3>
+          </div>
+          <div className={styles.containerSkills}>
+            {
+              skills.map(skill => {
+                return (
+                  <div className={styles.skill} key={skill.name}>
+                    <div className={styles.imageSkill}>
+                      <Image
+                        src={skill.path_logo}
+                        width={90}
+                        height={70}
+                        alt={skill.alt}
+                        quality={100}
+                      />
+                    </div>
+                    <div className={styles.nameSkill}>
+                      <p>{skill.name}</p>
+                    </div>
                   </div>
-                  <div className={styles.nameSkill}>
-                    <p>{skill.name}</p>
-                  </div>
-                </div>
-              )
-            })
-          }
+                )
+              })
+            }
+          </div>
         </div>
         {/* Projects */}
         {/* <div className={styles.listOfProjects}>
