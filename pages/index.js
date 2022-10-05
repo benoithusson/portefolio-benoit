@@ -23,7 +23,7 @@ export default function Home(props) {
   const textPresentationRightRef = useRef();
 
   // Ref skill
-  const containerListOfSkillsTitleRef = useRef();
+  const listOfSkillsRef = useRef();
 
   useEffect(() => {
     let el_topBar = topBarRef.current;
@@ -46,18 +46,20 @@ export default function Home(props) {
   }, [])
 
   useEffect(() => {
-    let el_containerListOfSkillsTitle = containerListOfSkillsTitleRef.current;
+    let el_listOfSkills = listOfSkillsRef.current;
+
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: el_containerListOfSkillsTitle,
-        start: 'center 75%',
-        end: 'bottom 90%',
+        trigger: el_listOfSkills,
+        start: 'top 75%',
+        end: 'center 90%',
         scrub: 1,
+        markers: true
       }
     })
 
-    tl.set(el_containerListOfSkillsTitle, { transformOrigin: 'bottom left' })
-    tl.fromTo(el_containerListOfSkillsTitle, { scaleY: 0 }, { scaleY: 1, duration: 1 })
+    tl.fromTo(el_listOfSkills, { opacity: 0 }, { opacity: 1, duration: 1 })
+    tl.fromTo(el_listOfSkills, { x: '-100%' }, { x: 0, duration: 2 })
 
   }, [])
 
@@ -78,10 +80,9 @@ export default function Home(props) {
       </div>
 
       <div style={{ padding: '0 200px', backgroundColor: 'black' }}>
-
         {/* Skills */}
-        <div className={styles.listOfSkills}>
-          <div className={styles.containerTitle} ref={containerListOfSkillsTitleRef}>
+        <div className={styles.listOfSkills} ref={listOfSkillsRef}>
+          <div className={styles.containerTitle}>
             <h3 className={styles.title}>The skills</h3>
           </div>
           <div className={styles.containerSkills}>
@@ -108,7 +109,7 @@ export default function Home(props) {
           </div>
         </div>
         {/* Projects */}
-        {/* <div className={styles.listOfProjects}>
+        <div className={styles.listOfProjects}>
           <div>
             <h3 className={styles.title}>The Projects</h3>
           </div>
@@ -125,7 +126,7 @@ export default function Home(props) {
               )
             })}
           </div>
-        </div> */}
+        </div>
       </div>
     </>
   )
