@@ -17,6 +17,7 @@ export default function ProjectCard(props) {
             <div className={styles.ProjectContainer} ref={containerRef}>
                 <div className={styles.test}></div>
                 <div className={styles.projectImage}>
+                    {/* TODO : Image component */}
                     <img src={projectImage} width={120} height={120} alt="todo" />
                 </div>
                 <div className={styles.projectTitle}>
