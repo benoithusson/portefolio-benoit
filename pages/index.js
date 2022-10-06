@@ -1,18 +1,18 @@
 import { useRef, useEffect } from 'react'
-import Image from 'next/image';
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger' // https://greensock.com/forums/topic/29801-getting-error-cannot-use-import-statement-outside-a-module-when-importing-flip/
-import styles from '../styles/pages/Index.module.scss'
 import Card from '../components/01-atoms/Card/Card'
 import ProjectCard from '../components/01-atoms/Project-card/ProjectCard'
+import Title from '../components/01-atoms/Title/Title'
+import List from '../components/02-molecules/List/List'
+import styles from '../styles/pages/Index.module.scss'
 import skills from '../data/skills'
 import projects from '../data/projects'
-import Title from '../components/01-atoms/Title/Title'
 
 gsap.registerPlugin(ScrollTrigger)
 
 
-export default function Home(props) {
+export default function Home() {
 
   // Ref bars
   const topBarRef = useRef();
@@ -24,7 +24,7 @@ export default function Home(props) {
   const textPresentationRightRef = useRef();
 
   // Ref skill
-  const listOfSkillsRef = useRef();
+  const wrapperListSkillsRef = useRef();
 
   useEffect(() => {
     let el_topBar = topBarRef.current;
@@ -47,7 +47,7 @@ export default function Home(props) {
   }, [])
 
   useEffect(() => {
-    let el_listOfSkills = listOfSkillsRef.current;
+    let el_listOfSkills = wrapperListSkillsRef.current;
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -79,43 +79,34 @@ export default function Home(props) {
         </div>
       </div>
 
-      {/* TODO */}
-      <div style={{ padding: '0 200px', backgroundColor: 'black' }}>
+      <div className={styles.wrapper}>
         {/* Skills */}
-        <div className={styles.listOfSkills} ref={listOfSkillsRef}>
+        <div className={styles.wrapperListSkills} ref={wrapperListSkillsRef}>
           <Title
-            title="The skills"
+            title="Skills"
+            containerMaxWidth='100px'
           />
-          <div className={styles.containerSkills}>
+          <div className={styles.containerList}>
             {
               skills.map(skill => {
                 return (
-                  <div className={styles.skill} key={skill.name}>
-                    <div className={styles.imageSkill}>
-                      <Image
-                        src={skill.path_logo}
-                        width={90}
-                        height={70}
-                        alt={skill.alt}
-                        quality={100}
-                      />
-                    </div>
-                    <div className={styles.nameSkill}>
-                      <p>{skill.name}</p>
-                    </div>
-                  </div>
+                  <List
+                    imageSrc={skill.path_logo}
+                    text={skill.name}
+                    key={skill.name}
+                  />
                 )
               })
             }
           </div>
         </div>
         {/* Projects */}
-        <div className={styles.listOfProjects}>
+        <div className={styles.wrapperListProjects}>
           <Title
-            title='The projects'
-            containerMaxWidth='200px'
+            title='Projects'
+            containerMaxWidth='140px'
           />
-          <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
+          <div className={styles.containerProject}>
             {projects.map((project, index) => {
               return (
                 <ProjectCard
