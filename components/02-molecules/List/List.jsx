@@ -6,7 +6,7 @@ export default function List(props) {
   const { imageSrc, alt, text } = props
 
   return (
-    <div className={styles.wrapperSkill}>
+    <div className={styles.wrapperList}>
       {imageSrc && (
         <div className={styles.containerImage}>
           <Image

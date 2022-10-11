@@ -1,30 +1,29 @@
 import React from 'react'
-import styles from './Tag.module.scss'
 
 export default function Tag(props) {
+  const {
+    stackName,
+    padding,
+    margin,
+    minWidth,
+    height,
+    backgroundColor,
+    color,
+    borderRadius,
+  } = props
 
-    const {
-        stackName,
-        padding,
-        margin,
-        maxWidth,
-        backgroundColor,
-        color,
-        borderRadius
-    } = props;
+  const tagStyle = {
+    padding: padding ? padding : '0 15px',
+    margin: margin ? margin : '0 5px 5px 0',
+    minWidth: minWidth ? minWidth : '15%',
+    height: height ? height : '30px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: backgroundColor ? backgroundColor : 'white',
+    color: color ? color : 'black',
+    borderRadius: borderRadius ? borderRadius : '50px',
+  }
 
-    const tagStyle = {
-        padding: padding ? padding : '5px 10px',
-        margin: margin ? margin : '10px 0 0 0',
-        maxWidth: maxWidth ? maxWidth : '50%',
-        backgroundColor: backgroundColor ? backgroundColor : 'white',
-        color: color ? color : 'black',
-        borderRadius: borderRadius ? borderRadius : '50px',
-    }
-
-    return (
-        <div style={tagStyle}>
-            {stackName}
-        </div>
-    )
+  return <div style={tagStyle}>{stackName}</div>
 }

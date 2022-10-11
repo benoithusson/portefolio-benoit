@@ -26,6 +26,14 @@ export default function Home() {
   // Ref skill
   const wrapperListSkillsRef = useRef();
 
+  // Ref project
+  const containerRefs = useRef([]);
+  containerRefs.current = [];
+
+  const addToRefs = (el) => {
+    console.log(el);
+  }
+
   useEffect(() => {
     let el_topBar = topBarRef.current;
     let el_rightBar = rightBarRef.current;
@@ -115,6 +123,7 @@ export default function Home() {
                   projectTitle={project.name}
                   projectDescription={project.description}
                   projectStack={project.stacks}
+                  projectUrl={project.project_url}
                 />
               )
             })}
