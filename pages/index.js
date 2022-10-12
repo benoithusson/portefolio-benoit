@@ -44,8 +44,8 @@ export default function Home() {
     gsap.fromTo(el_rightBar, { scaleY: 0 }, { scaleY: 1, duration: 2, ease: 'Power4.easeOut' })
     gsap.fromTo(el_leftBar, { scaleY: 0 }, { scaleY: 1, duration: 2, ease: 'Power4.easeOut' })
 
-    gsap.fromTo(el_textPresentationLeft, { opacity: 0 }, { opacity: 1, duration: 3, ease: 'Power4.easeOut' })
-    gsap.fromTo(el_textPresentationRight, { opacity: 0 }, { opacity: 1, duration: 3, ease: 'Power4.easeOut' })
+    gsap.fromTo(el_textPresentationLeft, { opacity: 0 }, { opacity: 1, duration: 4, ease: 'Power4.easeOut' })
+    gsap.fromTo(el_textPresentationRight, { opacity: 0 }, { opacity: 1, duration: 4, ease: 'Power4.easeOut' })
 
   }, [])
 

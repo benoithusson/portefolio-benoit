@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 import styles from './ProjectCard.module.scss'
 import Tag from '../Tag/Tag'
 import Image from 'next/image'
@@ -8,31 +8,35 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 export default function ProjectCard(props) {
-  const { projectImage, projectTitle, projectDescription, projectStack, projectUrl } = props;
+  const {
+    projectImage,
+    projectTitle,
+    projectDescription,
+    projectStack,
+    projectUrl
+  } = props;
 
-  const refWrapperCard = useRef();
-  const refContainerImageAndStack = useRef();
-  const refContainerTitleAndDescription = useRef();
+  const projectTitleRef = useRef();
+  const projectUrlRef = useRef();
 
   useEffect(() => {
-    const el_refContainerImageAndStack = refContainerImageAndStack.current;
-    const el_containerTitleAndDescription = refContainerTitleAndDescription.current;
-    const el_wrapperCard = refWrapperCard.current;
+    const el_projectTitle = projectTitleRef.current;
+    const el_projectUrl = projectUrlRef.current;
 
-    // el_refContainerImageAndStack.addEventListener('mouseenter', () => {
-    //   gsap.fromTo(refContainerImageAndStack, { opacity: '0' }, { opacity: '1', duration: 0.5 })
-    // })
-
-    
-
+    if (projectUrl) {
+      el_projectUrl.addEventListener("mouseenter", () => {
+        el_projectUrl.classList.add(styles['projectTitleOnHover']);
+      })
+      el_projectUrl.addEventListener("mouseleave", () => {
+        el_projectUrl.classList.remove(styles['projectTitleOnHover']);
+      })
+    }
   })
 
   return (
     <div className={styles.wrapperCard}>
-      <div className={styles.test}></div>
       <div
         className={styles.containerImageAndStack}
-        ref={refContainerImageAndStack}
       >
         <div className={styles.projectImage}>
           <Image src={projectImage} width={200} height={200} alt="todo" />
@@ -40,12 +44,11 @@ export default function ProjectCard(props) {
       </div>
       <div
         className={styles.containerTitleAndDescription}
-        ref={refContainerTitleAndDescription}
       >
         {projectTitle && (
-          <div className={styles.projectTitle}>
+          <div className={styles.projectTitle} ref={projectTitleRef}>
             {projectUrl ?
-              <a href={projectUrl}>
+              <a href={projectUrl} ref={projectUrlRef}>
                 {projectTitle} <span className={styles.visitProject}>
                   <Image src="/arrow.svg" width={20} height={20} alt="todo" />
                 </span>
