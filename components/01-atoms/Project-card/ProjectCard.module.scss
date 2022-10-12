@@ -1,7 +1,6 @@
 @import '../../../styles/abstracts/variables';
 
-// Do local variables here
-// Local = variables only for this file
+$p-project-card: 30px;
 
 .wrapperCard {
     display: flex;
@@ -11,8 +10,7 @@
 }
 
 .containerImageAndStack {
-    // TODO
-    padding: 30px;
+    padding: $p-project-card;
     width: 30%;
     flex-shrink: 0;
     flex-grow: 0;
@@ -21,8 +19,9 @@
 }
 
 .containerTitleAndDescription {
-    // TODO
-    padding: 30px 0 30px 50px;
+    padding-top: $p-project-card;
+    padding-bottom: $p-project-card;
+    padding-left: 50px;
     width: 50%;
 }
 
@@ -41,13 +40,13 @@
 }
 
 .projectDescription {
+    padding-top: $p-project-card;
+    padding-bottom: $p-project-card;
     font-weight: 100;
     min-height: 100px;
-    // TODO
-    padding: 30px 0;
 }
 
-.visitProject {
+.arrowVisitProject {
     padding: 10px 0;
 }
 

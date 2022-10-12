@@ -16,11 +16,9 @@ export default function ProjectCard(props) {
     projectUrl
   } = props;
 
-  const projectTitleRef = useRef();
   const projectUrlRef = useRef();
 
   useEffect(() => {
-    const el_projectTitle = projectTitleRef.current;
     const el_projectUrl = projectUrlRef.current;
 
     if (projectUrl) {
@@ -46,10 +44,10 @@ export default function ProjectCard(props) {
         className={styles.containerTitleAndDescription}
       >
         {projectTitle && (
-          <div className={styles.projectTitle} ref={projectTitleRef}>
+          <div className={styles.projectTitle}>
             {projectUrl ?
-              <a href={projectUrl} ref={projectUrlRef}>
-                {projectTitle} <span className={styles.visitProject}>
+              <a href={projectUrl} ref={projectUrlRef} target="_blank" rel="noopener noreferrer">
+                {projectTitle} <span className={styles.arrowVisitProject}>
                   <Image src="/arrow.svg" width={20} height={20} alt="todo" />
                 </span>
               </a>

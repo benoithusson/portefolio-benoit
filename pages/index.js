@@ -59,7 +59,7 @@ export default function Home() {
         end: 'bottom 80%',
       }
     })
-    tl.fromTo(el_listOfSkills, { opacity: 0 }, { opacity: 1, duration: 1 })
+    tl.fromTo(el_listOfSkills, { opacity: 0 }, { opacity: 1, duration: 0.5 })
   }, [])
 
   useEffect(() => {
@@ -71,7 +71,7 @@ export default function Home() {
         end: 'center 80%',
       }
     })
-    tl.fromTo(el_wrapperListProjects, { opacity: 0 }, { opacity: 1, duration: 2 })
+    tl.fromTo(el_wrapperListProjects, { opacity: 0 }, { opacity: 1, duration: 0.5 })
   }, [])
 
   return (
