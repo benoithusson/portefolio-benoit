@@ -1,16 +1,18 @@
 @import '../../../styles/abstracts/variables';
 
-$p-project-card: 30px;
+$p-base-project-card: 30px;
+$p-xl-project-card: 80px;
 
 .wrapperCard {
     display: flex;
     justify-content: center;
-    margin: 100px 0;
+    padding-top: $p-xl-project-card;
+    padding-bottom: $p-xl-project-card;
     color: white;
 }
 
 .containerImageAndStack {
-    padding: $p-project-card;
+    padding: $p-base-project-card;
     width: 30%;
     flex-shrink: 0;
     flex-grow: 0;
@@ -19,8 +21,8 @@ $p-project-card: 30px;
 }
 
 .containerTitleAndDescription {
-    padding-top: $p-project-card;
-    padding-bottom: $p-project-card;
+    padding-top: $p-base-project-card;
+    padding-bottom: $p-base-project-card;
     padding-left: 50px;
     width: 50%;
 }
@@ -40,8 +42,8 @@ $p-project-card: 30px;
 }
 
 .projectDescription {
-    padding-top: $p-project-card;
-    padding-bottom: $p-project-card;
+    padding-top: $p-base-project-card;
+    padding-bottom: $p-base-project-card;
     font-weight: 100;
     min-height: 100px;
 }

@@ -132,6 +132,29 @@ export default function Home() {
             })}
           </div>
         </div>
+        {/* Contacts */}
+        <div className={styles.wrapperContacts}>
+          <Title
+            title='Wanna get in touch ?'
+            containerMaxWidth='300px'
+          />
+          <div style={{ backgroundColor: 'red', display: 'flex', justifyContent: 'center' }}>
+            <div style={{ backgroundColor: 'green', padding: '30px', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly' }}>
+              <span>Telephone</span>
+              <span>
+                <span>E</span>
+                <span>m</span>
+                <span>a</span>
+                <span>i</span>
+                <span>l</span>
+              </span>
+            </div>
+            <div style={{ backgroundColor: 'skyblue', padding: '30px', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly' }}>
+              <span>Linkedin</span>
+              <span>GitHub</span>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   )
