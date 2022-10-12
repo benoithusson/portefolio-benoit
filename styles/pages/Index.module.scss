@@ -84,3 +84,11 @@
     padding-top: 200px;
     // display: flex;
 }
+
+.email {
+    span {
+        position: relative;
+        bottom: -100%;
+        opacity: 0;
+    }
+}

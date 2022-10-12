@@ -29,6 +29,15 @@ export default function Home() {
   // Ref project
   const wrapperListProjectsRef = useRef();
 
+  // Ref contacts
+  const refE = useRef();
+  const refM = useRef();
+  const refA = useRef();
+  const refI = useRef();
+  const refL = useRef();
+  const wrapperContactsRef = useRef();
+
+  // Animation bars
   useEffect(() => {
     let el_topBar = topBarRef.current;
     let el_rightBar = rightBarRef.current;
@@ -49,6 +58,7 @@ export default function Home() {
 
   }, [])
 
+  // Animation skills
   useEffect(() => {
     let el_listOfSkills = wrapperListSkillsRef.current;
 
@@ -62,6 +72,7 @@ export default function Home() {
     tl.fromTo(el_listOfSkills, { opacity: 0 }, { opacity: 1, duration: 0.5 })
   }, [])
 
+  // Animation projects
   useEffect(() => {
     const el_wrapperListProjects = wrapperListProjectsRef.current;
     const tl = gsap.timeline({
@@ -72,6 +83,32 @@ export default function Home() {
       }
     })
     tl.fromTo(el_wrapperListProjects, { opacity: 0 }, { opacity: 1, duration: 0.5 })
+  }, [])
+
+  useEffect(() => {
+    const el_E = refE.current;
+    const el_M = refM.current;
+    const el_A = refA.current;
+    const el_I = refI.current;
+    const el_L = refL.current;
+    const el_wrapperContacts = wrapperContactsRef.current;
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: el_wrapperContacts,
+        start: 'top 60%',
+        end: 'center 80%',
+        markers: true,
+        scrub: 1
+      }
+    })
+
+    tl.to(el_E, { opacity: 1, bottom: 0, duration: 0.10 })
+    tl.to(el_M, { opacity: 1, bottom: 0, duration: 0.11 })
+    tl.to(el_A, { opacity: 1, bottom: 0, duration: 0.12 })
+    tl.to(el_I, { opacity: 1, bottom: 0, duration: 0.13 })
+    tl.to(el_L, { opacity: 1, bottom: 0, duration: 0.14 })
+
   }, [])
 
   return (
@@ -133,7 +170,7 @@ export default function Home() {
           </div>
         </div>
         {/* Contacts */}
-        <div className={styles.wrapperContacts}>
+        <div className={styles.wrapperContacts} ref={wrapperContactsRef}>
           <Title
             title='Wanna get in touch ?'
             containerMaxWidth='300px'
@@ -141,12 +178,12 @@ export default function Home() {
           <div style={{ backgroundColor: 'red', display: 'flex', justifyContent: 'center' }}>
             <div style={{ backgroundColor: 'green', padding: '30px', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly' }}>
               <span>Telephone</span>
-              <span>
-                <span>E</span>
-                <span>m</span>
-                <span>a</span>
-                <span>i</span>
-                <span>l</span>
+              <span className={styles.email}>
+                <span ref={refE}>E</span>
+                <span ref={refM}>m</span>
+                <span ref={refA}>a</span>
+                <span ref={refI}>i</span>
+                <span ref={refL}>l</span>
               </span>
             </div>
             <div style={{ backgroundColor: 'skyblue', padding: '30px', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly' }}>
