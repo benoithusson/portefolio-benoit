@@ -8,25 +8,28 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 export default function ProjectCard(props) {
-  const { projectImage, projectTitle, projectDescription, projectStack, projectUrl } = props
+  const { projectImage, projectTitle, projectDescription, projectStack, projectUrl } = props;
 
-  const refContainerImageAndStack = useRef()
-  const refContainerTitleAndDescription = useRef()
+  const refWrapperCard = useRef();
+  const refContainerImageAndStack = useRef();
+  const refContainerTitleAndDescription = useRef();
 
   useEffect(() => {
-    // const el_refContainerImageAndStack = refContainerImageAndStack.current
-    // const el_containerTitleAndDescription =
-    //   refContainerTitleAndDescription.current
+    const el_refContainerImageAndStack = refContainerImageAndStack.current;
+    const el_containerTitleAndDescription = refContainerTitleAndDescription.current;
+    const el_wrapperCard = refWrapperCard.current;
 
     // el_refContainerImageAndStack.addEventListener('mouseenter', () => {
+    //   gsap.fromTo(refContainerImageAndStack, { opacity: '0' }, { opacity: '1', duration: 0.5 })
     // })
 
-    // el_refContainerImageAndStack.addEventListener('mouseleave', () => {
-    // })
+    
+
   })
 
   return (
     <div className={styles.wrapperCard}>
+      <div className={styles.test}></div>
       <div
         className={styles.containerImageAndStack}
         ref={refContainerImageAndStack}

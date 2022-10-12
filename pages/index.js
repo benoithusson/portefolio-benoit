@@ -27,12 +27,7 @@ export default function Home() {
   const wrapperListSkillsRef = useRef();
 
   // Ref project
-  const containerRefs = useRef([]);
-  containerRefs.current = [];
-
-  const addToRefs = (el) => {
-    console.log(el);
-  }
+  const wrapperListProjectsRef = useRef();
 
   useEffect(() => {
     let el_topBar = topBarRef.current;
@@ -60,21 +55,29 @@ export default function Home() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: el_listOfSkills,
-        start: 'top 75%',
-        end: 'center 90%',
-        scrub: 1,
+        start: 'top 50%',
+        end: 'bottom 80%',
       }
     })
-
     tl.fromTo(el_listOfSkills, { opacity: 0 }, { opacity: 1, duration: 1 })
-    tl.fromTo(el_listOfSkills, { x: '-100%' }, { x: 0, duration: 2 })
+  }, [])
 
+  useEffect(() => {
+    const el_wrapperListProjects = wrapperListProjectsRef.current;
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: el_wrapperListProjects,
+        start: 'top 50%',
+        end: 'center 80%',
+      }
+    })
+    tl.fromTo(el_wrapperListProjects, { opacity: 0 }, { opacity: 1, duration: 2 })
   }, [])
 
   return (
     <>
       {/* Presentation Bloc */}
-      <div className={styles.containerBlocPresentation}>
+      <div className={styles.wrapperBlocPresentation}>
         <div className={`${styles.bar} ${styles.topBar}`} ref={topBarRef}></div>
         <div className={`${styles.bar} ${styles.rightBar}`} ref={rightBarRef}></div>
         <div className={`${styles.bar} ${styles.leftBar}`} ref={leftBarRef}></div>
@@ -109,7 +112,7 @@ export default function Home() {
           </div>
         </div>
         {/* Projects */}
-        <div className={styles.wrapperListProjects}>
+        <div className={styles.wrapperListProjects} ref={wrapperListProjectsRef}>
           <Title
             title='Projects'
             containerMaxWidth='140px'
