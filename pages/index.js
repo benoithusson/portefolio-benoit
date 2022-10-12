@@ -152,6 +152,7 @@ export default function Home() {
             <div style={{ backgroundColor: 'skyblue', padding: '30px', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly' }}>
               <span>Linkedin</span>
               <span>GitHub</span>
+              <span>Resume</span>
             </div>
           </div>
         </div>
