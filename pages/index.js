@@ -114,7 +114,7 @@ export default function Home() {
         {/* Skills */}
         <div className={styles.wrapperListSkills} ref={wrapperListSkillsRef}>
           <Title
-            title="Skills"
+            title="Stack"
             containerMaxWidth='100px'
           />
           <div className={styles.containerList}>
