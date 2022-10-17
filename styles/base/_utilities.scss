@@ -11,17 +11,17 @@
     padding-left: $px-xs;
     padding-right: $px-xs;
 
-    @include sm {
+    @include screen-sm {
         padding-left: $px-sm;
         padding-right: $px-sm;
     }
 
-    @include md {
+    @include screen-md {
         padding-left: $px-md;
         padding-right: $px-md;
     }
 
-    @include lg {
+    @include screen-lg {
         padding-left: $px-lg;
         padding-right: $px-lg;
     }
@@ -31,15 +31,15 @@
 .container-pl {
     padding-left: $px-xs;
 
-    @include sm {
+    @include screen-sm {
         padding-left: $px-sm;
     }
 
-    @include md {
+    @include screen-md {
         padding-left: $px-md;
     }
 
-    @include lg {
+    @include screen-lg {
         padding-left: $px-lg;
     }
 }
@@ -48,15 +48,15 @@
 .container-pr {
     padding-right: $px-xs;
 
-    @include sm {
+    @include screen-sm {
         padding-right: $px-sm;
     }
 
-    @include md {
+    @include screen-md {
         padding-right: $px-md;
     }
 
-    @include lg {
+    @include screen-lg {
         padding-right: $px-lg;
     }
 }
@@ -66,17 +66,17 @@
     padding-top: $pt-xs;
     padding-bottom: $pb-xs;
 
-    @include sm {
+    @include screen-sm {
         padding-top: $pt-sm;
         padding-bottom: $pb-sm;
     }
 
-    @include md {
+    @include screen-md {
         padding-top: $pt-md;
         padding-bottom: $pb-md;
     }
 
-    @include lg {
+    @include screen-lg {
         padding-top: $pt-lg;
         padding-bottom: $pb-lg;
     }
@@ -86,15 +86,15 @@
 .container-pt {
     padding-top: $pt-xs;
 
-    @include sm {
+    @include screen-sm {
         padding-top: $pb-sm;
     }
 
-    @include md {
+    @include screen-md {
         padding-top: $pt-md;
     }
 
-    @include lg {
+    @include screen-lg {
         padding-top: $pt-lg;
     }
 }
@@ -103,15 +103,15 @@
 .container-pb {
     padding-bottom: $pb-xs;
 
-    @include sm {
+    @include screen-sm {
         padding-bottom: $pb-sm;
     }
 
-    @include md {
+    @include screen-md {
         padding-bottom: $pb-md;
     }
 
-    @include lg {
+    @include screen-lg {
         padding-bottom: $pb-lg;
     }
 }

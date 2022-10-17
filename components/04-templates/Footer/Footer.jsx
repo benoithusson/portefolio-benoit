@@ -1,40 +1,31 @@
 import React from 'react'
 import styles from './Footer.module.scss'
+import Card from '../../01-atoms/Card/Card'
+import Title from '../../01-atoms/Title/Title'
 
 const Footer = () => {
   return (
     <>
       <div className={styles.footer}>
         <div className={styles.footer__top}>
-          <div className={styles.footer__brand}>Brand</div>
           <ul className={styles.footer_nav}>
             <li className={styles.nav__item}>
-              <a>Lien 1</a>
+              <Card hrefLink="mailto:benoit.husson.tours@gmail.com" textLink="benoit.husson.tours@gmail.com" />
             </li>
             <li className={styles.nav__item}>
-              <a>Lien 2</a>
+              <Card hrefLink="tel:+33762218503" textLink="+33 7 62 21 85 03" />
             </li>
             <li className={styles.nav__item}>
-              <a>Lien 3</a>
+              <Card hrefLink="https://www.linkedin.com/in/benoit-husson-de-fr/" textLink="Linkedin" />
             </li>
             <li className={styles.nav__item}>
-              <a>Lien 4</a>
+              <Card hrefLink="https://github.com/benoithusson" textLink="GitHub" />
             </li>
           </ul>
-          <div className={styles.footer__socials}>
-            <a>Linkedin</a>
-            <a>Twitter</a>
-            <a>Facebook</a>
-            <a>Instagram</a>
-          </div>
         </div>
         <div className={styles.footer__bottom}>
           <div className={styles.footer__copyright}>
-            <span>&copy; 2022 Name of the company</span>
-          </div>
-          <div className={styles.footer__legals}>
-            <a>Impressum</a>
-            <a>Legals</a>
+            <span>&copy; 2022 Benoît Husson / Thiennard</span>
           </div>
         </div>
       </div>

@@ -6,25 +6,38 @@ $p-xl-project-card: 80px;
 .wrapperCard {
     display: flex;
     justify-content: center;
-    padding-top: $p-xl-project-card;
-    padding-bottom: $p-xl-project-card;
+    flex-direction: column;
+    padding-top: $p-base-project-card;
+    padding-bottom: $p-base-project-card;
     color: white;
+
+    @include screen-md {
+        flex-direction: row;
+            padding-top: $p-xl-project-card;
+            padding-bottom: $p-xl-project-card;
+    }
 }
 
 .containerImageAndStack {
     padding: $p-base-project-card;
-    width: 30%;
-    flex-shrink: 0;
-    flex-grow: 0;
     border: 1px solid white;
     border-radius: 10px;
+
+    @include screen-md {
+        width: 30%;
+        flex-shrink: 0;
+        flex-grow: 0;
+    }
 }
 
 .containerTitleAndDescription {
     padding-top: $p-base-project-card;
     padding-bottom: $p-base-project-card;
-    padding-left: 50px;
-    width: 50%;
+
+    @include screen-md {
+        padding-left: 50px;
+        width: 50%;
+    }
 }
 
 .projectImage {
@@ -43,7 +56,6 @@ $p-xl-project-card: 80px;
 
 .projectDescription {
     padding-top: $p-base-project-card;
-    padding-bottom: $p-base-project-card;
     font-weight: 100;
     min-height: 100px;
 }

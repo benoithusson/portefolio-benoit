@@ -1,41 +1,41 @@
 /* BREAKPOINTS */
-@mixin xs {
+@mixin screen-xs {
     @media (min-width: #{$screen-xs}) {
         @content;
     }
 }
 
-@mixin sm {
+@mixin screen-sm {
     @media (min-width: #{$screen-sm}) {
         @content;
     }
 }
 
-@mixin md {
+@mixin screen-md {
     @media (min-width: #{$screen-md}) {
         @content;
     }
 }
 
-@mixin lg {
+@mixin screen-lg {
     @media (min-width: #{$screen-lg}) {
         @content;
     }
 }
 
-@mixin xl {
+@mixin screen-xl {
     @media (min-width: #{$screen-xl}) {
         @content;
     }
 }
 
-@mixin double-xl-screen {
+@mixin screen-2xl {
     @media (min-width: #{$screen-2xl}) {
         @content;
     }
 }
 
-@mixin triple-xl-screen {
+@mixin screen-3xl {
     @media (min-width: #{$screen-3xl}) {
         @content;
     }

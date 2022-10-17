@@ -31,15 +31,15 @@
 .text-h1 {
     font-size: $text-2xl;
 
-    @include sm {
+    @include screen-sm {
         font-size: $text-2xl;
     }
 
-    @include md {
+    @include screen-md {
         font-size: $text-3xl;
     }
 
-    @include lg {
+    @include screen-lg {
         font-size: $text-4xl;
     }
 }
@@ -47,15 +47,15 @@
 .text-h2 {
     font-size: $text-xl;
 
-    @include sm {
+    @include screen-sm {
         font-size: $text-xl;
     }
 
-    @include md {
+    @include screen-md {
         font-size: $text-2xl;
     }
 
-    @include lg {
+    @include screen-lg {
         font-size: $text-3xl;
     }
 }
@@ -63,15 +63,15 @@
 .text-h3 {
     font-size: $text-lg;
 
-    @include sm {
+    @include screen-sm {
         font-size: $text-lg;
     }
 
-    @include md {
+    @include screen-md {
         font-size: $text-xl;
     }
 
-    @include lg {
+    @include screen-lg {
         font-size: $text-2xl;
     }
 }
@@ -79,15 +79,15 @@
 .text-h4 {
     font-size: $text-normal;
 
-    @include sm {
+    @include screen-sm {
         font-size: $text-normal;
     }
 
-    @include md {
+    @include screen-md {
         font-size: $text-lg;
     }
 
-    @include lg {
+    @include screen-lg {
         font-size: $text-xl;
     }
 }
@@ -96,15 +96,15 @@
 .text-h6 {
     font-size: $text-sm;
 
-    @include sm {
+    @include screen-sm {
         font-size: $text-sm;
     }
 
-    @include md {
+    @include screen-md {
         font-size: $text-normal;
     }
 
-    @include lg {
+    @include screen-lg {
         font-size: $text-lg;
     }
 }

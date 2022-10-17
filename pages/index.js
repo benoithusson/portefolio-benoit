@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger' // https://greensock.com/forums/topic/29801-getting-error-cannot-use-import-statement-outside-a-module-when-importing-flip/
 import Card from '../components/01-atoms/Card/Card'
 import ProjectCard from '../components/01-atoms/Project-card/ProjectCard'
+import CustomLink from '../components/01-atoms/Link/Link'
 import Title from '../components/01-atoms/Title/Title'
 import List from '../components/02-molecules/List/List'
 import styles from '../styles/pages/Index.module.scss'
@@ -30,11 +31,6 @@ export default function Home() {
   const wrapperListProjectsRef = useRef();
 
   // Ref contacts
-  const refE = useRef();
-  const refM = useRef();
-  const refA = useRef();
-  const refI = useRef();
-  const refL = useRef();
   const wrapperContactsRef = useRef();
 
   // Animation bars
@@ -85,30 +81,18 @@ export default function Home() {
     tl.fromTo(el_wrapperListProjects, { opacity: 0 }, { opacity: 1, duration: 0.5 })
   }, [])
 
+  // Animation contacts
   useEffect(() => {
-    const el_E = refE.current;
-    const el_M = refM.current;
-    const el_A = refA.current;
-    const el_I = refI.current;
-    const el_L = refL.current;
     const el_wrapperContacts = wrapperContactsRef.current;
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: el_wrapperContacts,
-        start: 'top 60%',
-        end: 'center 80%',
-        markers: true,
-        scrub: 1
+        start: 'top 70%',
+        end: 'center 90%',
       }
     })
-
-    tl.to(el_E, { opacity: 1, bottom: 0, duration: 0.10 })
-    tl.to(el_M, { opacity: 1, bottom: 0, duration: 0.11 })
-    tl.to(el_A, { opacity: 1, bottom: 0, duration: 0.12 })
-    tl.to(el_I, { opacity: 1, bottom: 0, duration: 0.13 })
-    tl.to(el_L, { opacity: 1, bottom: 0, duration: 0.14 })
-
+    tl.fromTo(el_wrapperContacts, { opacity: 0 }, { opacity: 1, duration: 0.5 })
   }, [])
 
   return (
@@ -122,11 +106,10 @@ export default function Home() {
           <Card
             title={"Welcome."}
             text={"I'm Benoît."}
-            refCard={textPresentationRightRef}
+            ref={textPresentationRightRef}
           />
         </div>
       </div>
-
       <div className={styles.wrapper}>
         {/* Skills */}
         <div className={styles.wrapperListSkills} ref={wrapperListSkillsRef}>
@@ -149,7 +132,7 @@ export default function Home() {
           </div>
         </div>
         {/* Projects */}
-        <div className={styles.wrapperListProjects} ref={wrapperListProjectsRef}>
+        <div className={styles.wrapperListOfProjects} ref={wrapperListProjectsRef}>
           <Title
             title='Projects'
             containerMaxWidth='140px'
@@ -167,30 +150,6 @@ export default function Home() {
                 />
               )
             })}
-          </div>
-        </div>
-        {/* Contacts */}
-        <div className={styles.wrapperContacts} ref={wrapperContactsRef}>
-          <Title
-            title='Wanna get in touch ?'
-            containerMaxWidth='300px'
-          />
-          <div style={{ backgroundColor: 'red', display: 'flex', justifyContent: 'center' }}>
-            <div style={{ backgroundColor: 'green', padding: '30px', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly' }}>
-              <span>Telephone</span>
-              <span className={styles.email}>
-                <span ref={refE}>E</span>
-                <span ref={refM}>m</span>
-                <span ref={refA}>a</span>
-                <span ref={refI}>i</span>
-                <span ref={refL}>l</span>
-              </span>
-            </div>
-            <div style={{ backgroundColor: 'skyblue', padding: '30px', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly' }}>
-              <span>Linkedin</span>
-              <span>GitHub</span>
-              <span>Resume</span>
-            </div>
           </div>
         </div>
       </div>

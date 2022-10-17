@@ -49,9 +49,9 @@
 
 /**** Page layout ****/
 .wrapper {
-    padding: 0 200px;
-    background-color: black;
+    @extend .container-px;
     position: relative;
+    background-color: black;
 }
 
 /**** Skills ****/
@@ -59,36 +59,44 @@
     display: flex;
     flex-direction: column;
     // TODO
-    padding-top: 200px;
+    padding-top: 100px;
     color: white;
+
+    @include screen-md {
+        padding-top: 200px;
+    }
 }
 
 .containerList {
     display: flex;
     justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     padding-top: $pt-xl;
+
+    @include screen-md {
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
 }
 
 /**** Projects ****/
-.wrapperListProjects {
+.wrapperListOfProjects {
     display: flex;
     flex-direction: column;
     // TODO
-    padding-top: 200px;
+    padding-top: 100px;
+
+    @include screen-md {
+        padding-top: 200px;
+    }
 }
 
 /**** Contacts ****/
 .wrapperContacts {
-    padding-top: 200px;
-    // display: flex;
-}
+    padding-top: 100px;
+    padding-bottom: 100px;
 
-.email {
-    span {
-        position: relative;
-        bottom: -100%;
-        opacity: 0;
+    @include screen-md {
+        padding-bottom: 200px;
     }
 }
