@@ -35,7 +35,6 @@
     align-items: center;
     justify-content: center;
     border-bottom: $border-primary;
-    // TODO : delete height when Logo brand is in the code
     height: 100px;
     width: 50%;
 
@@ -91,23 +90,6 @@
     }
 }
 
-.footer__socials {
-    padding-top: $pt-xs;
-    padding-bottom: $pb-xs;
-
-    a {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-    @include screen-md {
-        padding-top: 0;
-        padding-bottom: 0;
-        display: flex;
-        align-items: center;
-    }
-}
-
 .footer__bottom {
     @include screen-md {
         display: flex;
@@ -127,25 +109,6 @@
         justify-content: flex-start;
         padding-top: $pt-sm;
         padding-bottom: $pb-sm;
-        width: 100%;
-        border-top: none;
-    }
-}
-
-.footer__legals {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    padding-top: $pt-sm;
-    padding-bottom: $pb-sm;
-    border-top: $border-primary;
-
-    a {
-        padding-left: 30px;
-    }
-
-    @include screen-md {
-        justify-content: flex-end;
         width: 100%;
         border-top: none;
     }
