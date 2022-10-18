@@ -3,9 +3,9 @@ import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger' // https://greensock.com/forums/topic/29801-getting-error-cannot-use-import-statement-outside-a-module-when-importing-flip/
 import Card from '../components/01-atoms/Card/Card'
 import ProjectCard from '../components/01-atoms/Project-card/ProjectCard'
-import CustomLink from '../components/01-atoms/Link/Link'
 import Title from '../components/01-atoms/Title/Title'
 import List from '../components/02-molecules/List/List'
+import PhotoshopPortefolio from '../components/03-organisms/photoshop-portefolio/PhotoshopPortefolio'
 import styles from '../styles/pages/Index.module.scss'
 import skills from '../data/skills'
 import projects from '../data/projects'
@@ -102,17 +102,16 @@ export default function Home() {
         <div className={`${styles.bar} ${styles.topBar}`} ref={topBarRef}></div>
         <div className={`${styles.bar} ${styles.rightBar}`} ref={rightBarRef}></div>
         <div className={`${styles.bar} ${styles.leftBar}`} ref={leftBarRef}></div>
-        <div className={styles.BlocPresentation}>
+        <div className={styles.BlocPresentation} ref={textPresentationRightRef}>
           <Card
             title={"Welcome."}
             text={"I'm Benoît."}
-            ref={textPresentationRightRef}
           />
         </div>
       </div>
       <div className={styles.wrapper}>
         {/* Skills */}
-        <div className={styles.wrapperListSkills} ref={wrapperListSkillsRef}>
+        <div className={styles.wrapperListOfSkills} ref={wrapperListSkillsRef}>
           <Title
             title="Stack"
             containerMaxWidth='100px'
@@ -137,7 +136,7 @@ export default function Home() {
             title='Projects'
             containerMaxWidth='140px'
           />
-          <div className={styles.containerProject}>
+          <div className={styles.containerListOfProject}>
             {projects.map((project, index) => {
               return (
                 <ProjectCard
@@ -150,6 +149,14 @@ export default function Home() {
                 />
               )
             })}
+            {/* Photoshop Portefolio */}
+            <div className={styles.wrapperPhotoshopPortefolio}>
+              <Title
+                title='Photoshop Portefolio'
+                containerMaxWidth='300px'
+              />
+              <PhotoshopPortefolio />
+            </div>
           </div>
         </div>
       </div>

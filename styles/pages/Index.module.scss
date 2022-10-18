@@ -19,14 +19,22 @@
 .topBar {
     top: 0;
     width: 100%;
-    height: 20px;
+    height: 10px;
+
+    @include screen-md {
+        height: 20px;
+    }
 }
 
 .rightBar {
     top: 0;
     right: 0;
-    width: 20px;
+    width: 10px;
     height: 100vh;
+
+    @include screen-md {
+        width: 10px;
+    }
 }
 
 .leftBar {
@@ -55,7 +63,7 @@
 }
 
 /**** Skills ****/
-.wrapperListSkills {
+.wrapperListOfSkills {
     display: flex;
     flex-direction: column;
     // TODO

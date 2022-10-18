@@ -1,0 +1,75 @@
+@import '../styles/base/_utilities.scss';
+@import '../styles/abstracts/_variables.scss';
+
+.containerPhotoshopPortefolio {
+    position: relative;
+}
+
+.containerPhotoshopImage {
+    background-color: blue;
+    width: 200px;
+    position: relative;
+
+    img {
+        border-radius: 10px;
+    }
+}
+
+.containerPhotoshopImage:first-child {
+    top: 100px;
+    left: 100px;
+}
+
+.containerPhotoshopImage:nth-child(2) {
+    top: 200px;
+    left: 200px;
+    background-color: blueviolet;
+}
+
+.containerPhotoshopImage:nth-child(3) {
+    top: 10px;
+    left: 600px;
+    background-color: gray;
+}
+
+.containerPhotoshopImage:nth-child(4) {
+    top: -500px;
+    left: 700px;
+    background-color: green;
+}
+
+.containerPhotoshopImage:nth-child(5) {
+    top: -100px;
+    left: 30%;
+    background-color: greenyellow;
+}
+
+.popupImage {
+    background-color: white;
+}
+
+.displayPopup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transform-origin: center;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.721);
+    transition: all 0.5s ease;
+}
+
+.containerCloseBtn {
+    display: flex;
+    justify-content: flex-end;
+
+    .closeBtn {
+        padding: 50px;
+        font-size: 30px;
+        font-weight: 100;
+        border: none;
+        background-color: black;
+        color: white;
+    }
+}

@@ -7,14 +7,14 @@ const Card = (props) => {
     const {
         text,
         title,
-        ref,
+        refCard,
         textLink,
         hrefLink
     } = props;
 
     return (
         <>
-            <div className={styles.containerCard} ref={ref}>
+            <div className={styles.containerCard}>
                 {title &&
                     <div className={styles.containerTitle}>
                         <h2 className={styles.title}>{title}</h2>
