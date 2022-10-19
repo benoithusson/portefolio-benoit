@@ -18,6 +18,7 @@ export default function Home() {
   // Ref bars
   const topBarRef = useRef();
   const rightBarRef = useRef();
+  const bottomBarRef = useRef();
   const leftBarRef = useRef();
 
   // Ref text
@@ -37,16 +38,19 @@ export default function Home() {
   useEffect(() => {
     let el_topBar = topBarRef.current;
     let el_rightBar = rightBarRef.current;
+    let el_bottomBar = bottomBarRef.current;
     let el_leftBar = leftBarRef.current;
     let el_textPresentationLeft = textPresentationLeftRef.current;
     let el_textPresentationRight = textPresentationRightRef.current;
 
     gsap.set(el_topBar, { transformOrigin: 'right' })
     gsap.set(el_rightBar, { transformOrigin: 'top right' })
+    gsap.set(el_bottomBar, { transformOrigin: 'left' })
     gsap.set(el_leftBar, { transformOrigin: 'bottom right' })
 
     gsap.fromTo(el_topBar, { scaleX: 0 }, { scaleX: 1, duration: 2, ease: 'Power4.easeOut' })
     gsap.fromTo(el_rightBar, { scaleY: 0 }, { scaleY: 1, duration: 2, ease: 'Power4.easeOut' })
+    gsap.fromTo(el_bottomBar, { scaleX: 0 }, { scaleX: 1, duration: 2, ease: 'Power4.easeOut' })
     gsap.fromTo(el_leftBar, { scaleY: 0 }, { scaleY: 1, duration: 2, ease: 'Power4.easeOut' })
 
     gsap.fromTo(el_textPresentationLeft, { opacity: 0 }, { opacity: 1, duration: 4, ease: 'Power4.easeOut' })
@@ -101,6 +105,7 @@ export default function Home() {
       <div className={styles.wrapperBlocPresentation}>
         <div className={`${styles.bar} ${styles.topBar}`} ref={topBarRef}></div>
         <div className={`${styles.bar} ${styles.rightBar}`} ref={rightBarRef}></div>
+        <div className={`${styles.bar} ${styles.bottomBar}`} ref={bottomBarRef}></div>
         <div className={`${styles.bar} ${styles.leftBar}`} ref={leftBarRef}></div>
         <div className={styles.BlocPresentation} ref={textPresentationRightRef}>
           <Card

@@ -33,15 +33,29 @@
     height: 100vh;
 
     @include screen-md {
-        width: 10px;
+        width: 20px;
+    }
+}
+
+.bottomBar {
+    bottom: 0;
+    width: 100%;
+    height: 10px;
+
+    @include screen-md {
+        height: 20px;
     }
 }
 
 .leftBar {
     top: 0;
     left: 0;
-    width: 20px;
+    width: 10px;
     height: 100vh;
+
+    @include screen-md {
+        width: 20px;
+    }
 }
 
 .BlocPresentation {
@@ -107,4 +121,9 @@
     @include screen-md {
         padding-bottom: 200px;
     }
+}
+
+/**** Photoshop Portefolio ****/
+.wrapperPhotoshopPortefolio {
+    padding-top: 100px;
 }
