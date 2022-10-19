@@ -2,74 +2,86 @@
 @import '../styles/abstracts/_variables.scss';
 
 .containerPhotoshopPortefolio {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include screen-md {
+        display: block;
+    }
 }
 
 .containerPhotoshopImage {
-    background-color: blue;
-    width: 200px;
     position: relative;
+    width: 400px;
+    height: auto;
+    padding: 30px 0;
 
     img {
         border-radius: 10px;
     }
+
+    @include screen-md {
+        width: 400px;
+        height: 500px;
+
+        &:hover {
+            .containerFigcaption {
+                top: 0;
+                opacity: 1;
+                transition: all 0.4s ease;
+            }
+        }
+    }
 }
 
 .containerPhotoshopImage:first-child {
-    top: 100px;
-    left: 100px;
+    @include screen-md {
+        top: 150px;
+        left: 100px;
+    }
 }
 
 .containerPhotoshopImage:nth-child(2) {
-    top: 200px;
-    left: 200px;
-    background-color: blueviolet;
+    @include screen-md {
+        top: 50px;
+        left: 700px;
+    }
 }
 
 .containerPhotoshopImage:nth-child(3) {
-    top: 10px;
-    left: 600px;
-    background-color: gray;
+    @include screen-md {
+        top: 50px;
+        left: 100px;
+    }
 }
 
 .containerPhotoshopImage:nth-child(4) {
-    top: -500px;
-    left: 700px;
-    background-color: green;
+    @include screen-md {
+        top: -250px;
+        left: 700px;
+    }
 }
 
 .containerPhotoshopImage:nth-child(5) {
-    top: -100px;
-    left: 30%;
-    background-color: greenyellow;
+    @include screen-md {
+        top: -600px;
+        left: 100px;
+    }
 }
 
-.popupImage {
-    background-color: white;
-}
+.containerFigcaption {
+    opacity: 1;
 
-.displayPopup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    transform-origin: center;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.721);
-    transition: all 0.5s ease;
-}
-
-.containerCloseBtn {
-    display: flex;
-    justify-content: flex-end;
-
-    .closeBtn {
-        padding: 50px;
-        font-size: 30px;
-        font-weight: 100;
-        border: none;
-        background-color: black;
+    figcaption {
         color: white;
+        font-size: $text-xl;
+    }
+
+    @include screen-md {
+        position: relative;
+        top: -50px;
+        opacity: 0;
+        font-size: $text-normal;
     }
 }
