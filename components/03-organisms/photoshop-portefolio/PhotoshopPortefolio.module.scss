@@ -13,7 +13,7 @@
 
 .containerPhotoshopImage {
     position: relative;
-    width: 400px;
+    width: 250px;
     height: auto;
     padding: 30px 0;
 
@@ -64,18 +64,19 @@
 }
 
 .containerPhotoshopImage:nth-child(5) {
+    padding-bottom: 80px;
     @include screen-md {
         top: -500px;
         left: 100px;
+        padding-bottom: 0px;
     }
 }
 
 .containerFigcaption {
     opacity: 1;
-
     figcaption {
         color: white;
-        font-size: $text-xl;
+        font-size: $text-normal;
     }
 
     @include screen-md {
