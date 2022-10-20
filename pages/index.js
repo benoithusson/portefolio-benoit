@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger' // https://greensock.com/forums/topic/29801-getting-error-cannot-use-import-statement-outside-a-module-when-importing-flip/
 import Card from '../components/01-atoms/Card/Card'
@@ -14,6 +14,9 @@ gsap.registerPlugin(ScrollTrigger)
 
 
 export default function Home() {
+
+  // https://stackoverflow.com/questions/70492841/react-add-a-component-after-main-component-has-loaded
+  const [renderComponent, setRenderComponent] = useState(false);
 
   // Ref bars
   const topBarRef = useRef();
@@ -36,6 +39,7 @@ export default function Home() {
 
   // Animation bars
   useEffect(() => {
+
     let el_topBar = topBarRef.current;
     let el_rightBar = rightBarRef.current;
     let el_bottomBar = bottomBarRef.current;
@@ -45,18 +49,19 @@ export default function Home() {
 
     const tl = gsap.timeline();
 
-    gsap.set(el_topBar, { transformOrigin: 'right' })
-    gsap.set(el_rightBar, { transformOrigin: 'top right' })
-    gsap.set(el_bottomBar, { transformOrigin: 'left' })
-    gsap.set(el_leftBar, { transformOrigin: 'bottom right' })
+    gsap.set(el_topBar, { transformOrigin: 'right' });
+    gsap.set(el_rightBar, { transformOrigin: 'top right' });
+    gsap.set(el_bottomBar, { transformOrigin: 'left' });
+    gsap.set(el_leftBar, { transformOrigin: 'bottom right' });
+    gsap.fromTo(el_topBar, { scaleX: 0 }, { scaleX: 1, duration: 2, ease: 'Power4.easeOut' });
+    gsap.fromTo(el_rightBar, { scaleY: 0 }, { scaleY: 1, duration: 2, ease: 'Power4.easeOut' });
+    gsap.fromTo(el_bottomBar, { scaleX: 0 }, { scaleX: 1, duration: 2, ease: 'Power4.easeOut' });
+    gsap.fromTo(el_leftBar, { scaleY: 0 }, { scaleY: 1, duration: 2, ease: 'Power4.easeOut' });
 
-    gsap.fromTo(el_topBar, { scaleX: 0 }, { scaleX: 1, duration: 2, ease: 'Power4.easeOut' })
-    gsap.fromTo(el_rightBar, { scaleY: 0 }, { scaleY: 1, duration: 2, ease: 'Power4.easeOut' })
-    gsap.fromTo(el_bottomBar, { scaleX: 0 }, { scaleX: 1, duration: 2, ease: 'Power4.easeOut' })
-    gsap.fromTo(el_leftBar, { scaleY: 0 }, { scaleY: 1, duration: 2, ease: 'Power4.easeOut' })
+    tl.fromTo(el_textPresentationLeft, { opacity: 0 }, { opacity: 1, duration: 1, ease: 'Power4.easeOut' });
+    tl.fromTo(el_textPresentationRight, { opacity: 0 }, { opacity: 1, duration: 1, ease: 'Power4.easeOut' });
 
-    tl.fromTo(el_textPresentationLeft, { opacity: 0 }, { opacity: 1, duration: 1, ease: 'Power4.easeOut' })
-    tl.fromTo(el_textPresentationRight, { opacity: 0 }, { opacity: 1, duration: 1, ease: 'Power4.easeOut' })
+    setRenderComponent(true);
   }, [])
 
   // Animation skills
@@ -109,10 +114,12 @@ export default function Home() {
         <div className={`${styles.bar} ${styles.bottomBar}`} ref={bottomBarRef}></div>
         <div className={`${styles.bar} ${styles.leftBar}`} ref={leftBarRef}></div>
         <div className={styles.BlocPresentation} ref={textPresentationRightRef}>
-          <Card
-            title={"Welcome."}
-            text={"I'm Benoît."}
-          />
+          {renderComponent &&
+            <Card
+              title={"Welcome."}
+              text={"I'm Benoît."}
+            />
+          }
         </div>
       </div>
       <div className={styles.wrapper}>
