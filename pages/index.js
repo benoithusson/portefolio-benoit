@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger)
 export default function Home() {
 
   // https://stackoverflow.com/questions/70492841/react-add-a-component-after-main-component-has-loaded
-  const [renderComponent, setRenderComponent] = useState(false);
+  const [renderMainComponent, setRenderMainComponent] = useState(false);
 
   // Ref bars
   const topBarRef = useRef();
@@ -40,6 +40,8 @@ export default function Home() {
   // Animation bars
   useEffect(() => {
 
+    setRenderMainComponent(true);
+
     let el_topBar = topBarRef.current;
     let el_rightBar = rightBarRef.current;
     let el_bottomBar = bottomBarRef.current;
@@ -60,8 +62,6 @@ export default function Home() {
 
     tl.fromTo(el_textPresentationLeft, { opacity: 0 }, { opacity: 1, duration: 1, ease: 'Power4.easeOut' });
     tl.fromTo(el_textPresentationRight, { opacity: 0 }, { opacity: 1, duration: 1, ease: 'Power4.easeOut' });
-
-    setRenderComponent(true);
   }, [])
 
   // Animation skills
@@ -114,7 +114,7 @@ export default function Home() {
         <div className={`${styles.bar} ${styles.bottomBar}`} ref={bottomBarRef}></div>
         <div className={`${styles.bar} ${styles.leftBar}`} ref={leftBarRef}></div>
         <div className={styles.BlocPresentation} ref={textPresentationRightRef}>
-          {renderComponent &&
+          {renderMainComponent &&
             <Card
               title={"Welcome."}
               text={"I'm Benoît."}
