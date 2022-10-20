@@ -43,6 +43,8 @@ export default function Home() {
     let el_textPresentationLeft = textPresentationLeftRef.current;
     let el_textPresentationRight = textPresentationRightRef.current;
 
+    const tl = gsap.timeline();
+
     gsap.set(el_topBar, { transformOrigin: 'right' })
     gsap.set(el_rightBar, { transformOrigin: 'top right' })
     gsap.set(el_bottomBar, { transformOrigin: 'left' })
@@ -53,9 +55,8 @@ export default function Home() {
     gsap.fromTo(el_bottomBar, { scaleX: 0 }, { scaleX: 1, duration: 2, ease: 'Power4.easeOut' })
     gsap.fromTo(el_leftBar, { scaleY: 0 }, { scaleY: 1, duration: 2, ease: 'Power4.easeOut' })
 
-    gsap.fromTo(el_textPresentationLeft, { opacity: 0 }, { opacity: 1, duration: 4, ease: 'Power4.easeOut' })
-    gsap.fromTo(el_textPresentationRight, { opacity: 0 }, { opacity: 1, duration: 4, ease: 'Power4.easeOut' })
-
+    tl.fromTo(el_textPresentationLeft, { opacity: 0 }, { opacity: 1, duration: 1, ease: 'Power4.easeOut' })
+    tl.fromTo(el_textPresentationRight, { opacity: 0 }, { opacity: 1, duration: 1, ease: 'Power4.easeOut' })
   }, [])
 
   // Animation skills

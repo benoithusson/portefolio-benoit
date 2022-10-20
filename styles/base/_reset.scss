@@ -7,6 +7,22 @@
     color: white;
 }
 
+::-webkit-scrollbar {
+    width: 2px;
+}
+
+::-webkit-scrollbar-track {
+    background: black;
+}
+
+::-webkit-scrollbar-thumb {
+    background: red;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 /* BODY */
 body {
     @extend .text-body;
