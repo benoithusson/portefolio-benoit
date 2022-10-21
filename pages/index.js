@@ -40,6 +40,9 @@ export default function Home() {
   // Animation bars
   useEffect(() => {
 
+    // When componentDidMount
+    // I set renderMainComponent to true
+    // To avoid loading component before page is load
     setRenderMainComponent(true);
 
     let el_topBar = topBarRef.current;
@@ -113,16 +116,16 @@ export default function Home() {
         <div className={`${styles.bar} ${styles.rightBar}`} ref={rightBarRef}></div>
         <div className={`${styles.bar} ${styles.bottomBar}`} ref={bottomBarRef}></div>
         <div className={`${styles.bar} ${styles.leftBar}`} ref={leftBarRef}></div>
-        <div className={styles.BlocPresentation} ref={textPresentationRightRef}>
-          {renderMainComponent &&
+        {renderMainComponent &&
+          <div className={styles.BlocPresentation} ref={textPresentationRightRef}>
             <Card
               title={"Welcome."}
               text={"I'm Benoît."}
             />
-          }
-        </div>
+          </div>
+        }
       </div>
-      <div className={styles.wrapper}>
+      <div className={styles.pageWrapper}>
         {/* Skills */}
         <div className={styles.wrapperListOfSkills} ref={wrapperListSkillsRef}>
           <Title

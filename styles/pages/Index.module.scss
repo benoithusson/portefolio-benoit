@@ -20,10 +20,6 @@
     top: 0;
     width: 100%;
     height: 10px;
-
-    @include screen-md {
-        height: 20px;
-    }
 }
 
 .rightBar {
@@ -31,20 +27,12 @@
     right: 0;
     width: 10px;
     height: 100vh;
-
-    @include screen-md {
-        width: 20px;
-    }
 }
 
 .bottomBar {
     bottom: 0;
     width: 100%;
     height: 10px;
-
-    @include screen-md {
-        height: 20px;
-    }
 }
 
 .leftBar {
@@ -52,10 +40,6 @@
     left: 0;
     width: 10px;
     height: 100vh;
-
-    @include screen-md {
-        width: 20px;
-    }
 }
 
 .BlocPresentation {
@@ -66,11 +50,15 @@
     width: 100%;
     height: 100%;
     color: white;
-    padding: 0 25%;
+
+    @include screen-md {
+        padding: 0 25%;
+        width: 20px;
+    }
 }
 
 /**** Page layout ****/
-.wrapper {
+.pageWrapper {
     @extend .container-px;
     position: relative;
     background-color: black;
