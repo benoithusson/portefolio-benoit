@@ -32,6 +32,7 @@ const projects = [
             { name: 'Module SCSS' },
             { name: 'Redux' },
             { name: 'Typescript' },
+            { name: 'GraphQL / Apollo Client' },
         ]
     },
     {
